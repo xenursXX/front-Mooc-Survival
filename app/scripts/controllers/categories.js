@@ -21,6 +21,7 @@ angular.module('frontMoocSurvivalApp')
 
     // Category View
     this.category = $routeParams.name;
+    this.stars = "3";
     this.date = new Date();
   }
 );

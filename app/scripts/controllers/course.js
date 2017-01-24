@@ -9,6 +9,6 @@
  */
 angular.module('frontMoocSurvivalApp')
   .controller('CourseCtrl', function () {
-    
+
   }
 );

@@ -44,7 +44,7 @@ $blue-dark : #34495e;
 	text-align: center;
 	text-transform: uppercase;
 	vertical-align: middle;
-	
+
 	span{
 		min-width: 20%;
 		transition: all .4s ease;
@@ -106,7 +106,7 @@ $blue-dark : #34495e;
     text-decoration: none;
     font-size: 16px;
     background-image: url(../images/desert.jpg);
-	
+
 	.label-category{
 		position: absolute;
 		top: 5px;
@@ -153,6 +153,7 @@ $blue-dark : #34495e;
 			&.creator{
 				font-size: 12px;
 				font-weight: lighter;
+				display: inline-block;
 			}
 		}
 	}

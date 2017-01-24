@@ -10,6 +10,18 @@
 				<div class="avatar"></div>
 				<span class="title">Stage de désert</span>
 				<span class="creator">Benjamin Le roux</span>
+        <span
+        class="pull-right"
+        uib-rating
+        ng-model="category.stars"
+        max="5"
+        read-only="isReadonly"
+        on-hover="hoveringOver(value)"
+        on-leave="overStar = null"
+        titles="['one','two','three']"
+        aria-labelledby="default-rating"
+        >
+        </span>
 			</div>
 		</a>
 	</div>
