@@ -7,9 +7,9 @@
     </p>
     <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
   </div>
-
+  
+  <h2>Les 3 derniers cours</h2>
   <div class="row">
-    <h2>Les 3 derniers cours</h2>
     <div class="col-md-4" ng-repeat="i in [1, 2, 3]">
       <a class="course-box">
         <span class="label-category">#Category</span>
@@ -21,9 +21,9 @@
       </a>
     </div>
   </div>
-
+  
+  <h2>Les 3 catégories les plus populaires</h2>
   <div class="row">
-    <h2>Les 3 catégories les plus populaires</h2>
     <div class="col-md-4" ng-repeat="cat in home.categoriesList">
       <a class="category-box {{ cat }}" href="#/categories/{{ cat }}">
         <span>#{{ cat }}</span>
