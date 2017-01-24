@@ -1,27 +1,13 @@
 <div class="container" id="categories-page">
-  <div class="col-md-4">
-  	<div class="category-box montagne">
-  		<span>#Montagne</span>
-  	</div>
+  <h1>Les catégories</h1>
+  <h2>Choississez votre catégorie</h2>
+  <hr>
+  <div class="row">
+    <div class="col-md-4" ng-repeat="cat in categories.categoriesList">
+    	<a class="category-box {{ cat }}" href="#/categories/{{ cat }}">
+    		<span>#{{ cat }}</span>
+    	</a>
+    </div>
   </div>
-  <div class="col-md-4">
-  	<div class="category-box forest">
-  		<span>#Forêt</span>
-  	</div>
-  </div>
-  <div class="col-md-4">
-  	<div class="category-box apocalypse">
-  		<span>#Apocalypse</span>
-  	</div>
-  </div>
-  <div class="col-md-4">
-  	<div class="category-box desert">
-  		<span>#Desert</span>
-  	</div>
-  </div>
-  <div class="col-md-4">
-  	<div class="category-box jungle">
-  		<span>#Jungle</span>
-  	</div>
-  </div>
+
 </div>

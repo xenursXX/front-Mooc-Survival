@@ -10,5 +10,13 @@
 angular.module('frontMoocSurvivalApp')
   .controller('HomeCtrl', function () {
     
+    // Categories list
+    this.categoriesList = [
+    	'montagne',
+    	'forest',
+    	'apocalypse',
+    	'desert',
+    	'jungle'
+    ];
    
   });

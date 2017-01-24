@@ -13,6 +13,149 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "login.scss";
 @import "profile.scss";
 
+
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700');
+
 body{
 	background-color: #ededed;
+	font-family: 'Oswald', sans-serif;
+}
+
+/***** COLOR *****/
+$blue-dark : #34495e;
+
+
+
+
+
+
+/*** Category box ***/
+.category-box{
+	cursor: pointer;
+	margin-bottom: 20px;
+	height: 250px;
+	box-shadow: 0 2px 2px rgba(0,0,0,.3);
+	background-size: cover;
+	background-position: center center;
+	line-height: 250px;
+	color: #fff;
+	display: block;
+	font-weight: bold;
+	font-size: 24px;
+	outline: none;
+	text-align: center;
+	text-transform: uppercase;
+	vertical-align: middle;
+	
+	span{
+		min-width: 20%;
+		transition: all .4s ease;
+		background-color: $blue-dark;
+		-webkit-border-radius: 20px;
+				border-radius: 20px;
+		display: inline-block;
+		line-height: 25px;
+		padding: 8px 14px;
+	}
+
+	&:hover{
+		color: #fff;
+
+		span{
+			padding: 0px;
+			min-width: 100%;
+			line-height: 250px;
+			-webkit-border-radius: 0px;
+					border-radius: 0px;
+		}
+	}
+
+	&.montagne{
+		background-image: url("../images/stage-froid.jpg");
+	}
+
+	&.forest{
+		background-image: url("../images/forest.jpg");
+	}
+
+	&.desert{
+		background-image: url("../images/desert.jpg");
+	}
+
+	&.jungle{
+		background-image: url("../images/wild.jpg");
+	}
+
+	&.apocalypse{
+		background-image: url("../images/ville.jpg");
+	}
+}
+
+
+/*** Course box ***/
+.course-box{
+	cursor: pointer;
+    position: relative;
+    margin-bottom: 20px;
+    height: 250px;
+    outline: none;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-position: center center;
+    line-height: 250px;
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    background-image: url(../images/desert.jpg);
+	
+	.label-category{
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		display: block;
+		padding: 5px 10px;
+		background-color: #fff;
+		color: $blue-dark;
+		line-height: 14px;
+		-webkit-border-radius: 50px;
+				border-radius: 50px;
+	}
+
+	.footer-course{
+		color: #fff;
+		position: absolute;
+		bottom: 0px;
+		width: 100%;
+		background-color: $blue-dark;
+		height: 50px;
+		line-height: 20px;
+		padding: 5px 10px;
+
+		.avatar{
+			display: block;
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			background-image: url(../images/stage-froid.jpg);
+			background-size: cover;
+    		background-position: center center;
+    		-webkit-border-radius: 50%;
+					border-radius: 50%;
+		}
+
+		span{
+			padding-left: 50px;
+			display: block;
+
+			&.title{
+				font-size: 16px;
+			}
+
+			&.creator{
+				font-size: 12px;
+				font-weight: lighter;
+			}
+		}
+	}
 }

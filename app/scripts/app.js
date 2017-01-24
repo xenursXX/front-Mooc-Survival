@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angularMoment'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -55,9 +56,9 @@ angular
         controllerAs: 'categories'
       })
       .when('/categories/:name', {
-        templateUrl: 'views/categories.html',
+        templateUrl: 'views/category.html',
         controller: 'CategoriesCtrl',
-        controllerAs: 'categories'
+        controllerAs: 'category'
       })
       .otherwise({
         redirectTo: '/'
