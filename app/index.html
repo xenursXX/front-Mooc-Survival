@@ -16,9 +16,11 @@
   </head>
   <body ng-app="frontMoocSurvivalApp">
     
+    <div ng-include="'views/includes/header.html'" ng-controller="HeaderCtrl as header"></div>
 
     <div ng-view=""></div>
-
+    
+    <div ng-include="'views/includes/footer.html'" ng-controller="FooterCtrl as footer"></div>
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
