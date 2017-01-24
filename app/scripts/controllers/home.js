@@ -4,11 +4,11 @@
  * @ngdoc function
  * @name frontMoocSurvivalApp.controller:MainCtrl
  * @description
- * # MainCtrl
+ * # HomeCtrl
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('MainCtrl', function () {
+  .controller('HomeCtrl', function () {
     
    
   });
