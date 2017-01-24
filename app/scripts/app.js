@@ -21,27 +21,33 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        controllerAs: 'main'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
       })
       .when('/profile', {
         templateUrl: 'views/profile.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileCtrl',
+        controllerAs: 'profile'
       })
       .when('/course', {
         templateUrl: 'views/course.html',
-        controller: 'CourseCtrl'
+        controller: 'CourseCtrl',
+        controllerAs: 'course'
       })
       .when('/login', {
         templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
       })
       .when('/categories', {
         templateUrl: 'views/categories.html',
-        controller: 'CategoriesCtrl'
+        controller: 'CategoriesCtrl',
+        controllerAs: 'categories'
       })
       .otherwise({
         redirectTo: '/'

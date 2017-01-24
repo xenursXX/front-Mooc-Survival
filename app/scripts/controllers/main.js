@@ -8,11 +8,7 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function () {
     
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+   
   });
