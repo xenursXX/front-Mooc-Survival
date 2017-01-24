@@ -1,0 +1,45 @@
+#categories-page {
+	.category-box{
+		margin-bottom: 10px;
+		height: 250px;
+		box-shadow: 0 1px 1px rgba(0,0,0,.1);
+		background-size: cover;
+		background-position: center center;
+		line-height: 250px;
+		color: #fff;
+		font-weight: bold;
+		font-size: 24px;
+		text-align: center;
+		text-transform: uppercase;
+		vertical-align: middle;
+		
+		span{
+			background-color: #34495e;
+			-webkit-border-radius: 20px;
+					border-radius: 20px;
+			display: inline-block;
+			line-height: 25px;
+    		padding: 5px 20px;
+		}
+
+		&.montagne{
+			background-image: url("../images/stage-froid.jpg");
+		}
+
+		&.forest{
+			background-image: url("../images/forest.jpg");
+		}
+
+		&.desert{
+			background-image: url("../images/desert.jpg");
+		}
+
+		&.jungle{
+			background-image: url("../images/wild.jpg");
+		}
+
+		&.apocalypse{
+			background-image: url("../images/ville.jpg");
+		}
+	}
+}
