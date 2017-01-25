@@ -8,15 +8,9 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('HomeCtrl', function () {
+  .controller('HomeCtrl', function (CategoriesService) {
     
     // Categories list
-    this.categoriesList = [
-    	'montagne',
-    	'forest',
-    	'apocalypse',
-    	'desert',
-    	'jungle'
-    ];
+    this.categoriesList = CategoriesService.getCategories();
    
   });

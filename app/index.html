@@ -19,7 +19,7 @@
     
     <div ng-include="'views/includes/header.html'" ng-controller="HeaderCtrl as header"></div>
 
-    <div ng-view=""></div>
+    <div ng-view="" style="min-height: 100vh"></div>
 
     <div ng-include="'views/includes/footer.html'" ng-controller="FooterCtrl as footer"></div>
     
@@ -62,6 +62,7 @@
         <script src="scripts/controllers/signup.js"></script>
         <script src="scripts/controllers/footer.js"></script>
         <script src="scripts/controllers/header.js"></script>
+        <script src="scripts/services/categories.js"></script>
         <!-- endbuild -->
 </body>
 </html>

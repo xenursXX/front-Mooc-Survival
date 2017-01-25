@@ -8,7 +8,7 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('HeaderCtrl', function ($routeParams) {
+  .controller('HeaderCtrl', function ($routeParams, CategoriesService) {
 
   	// Fake list
     this.searchAutocompleteList = [
@@ -33,13 +33,7 @@ angular.module('frontMoocSurvivalApp')
     ];
 
     // Categories list
-    this.categoriesList = [
-    	'montagne',
-    	'forest',
-    	'apocalypse',
-    	'desert',
-    	'jungle'
-    ];
+    this.categoriesList = CategoriesService.getCategories();
 
     // Is view / Is active?
     this.isActiveCategoryView = function (category) {

@@ -8,16 +8,10 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CategoriesCtrl', function ($routeParams) {
+  .controller('CategoriesCtrl', function ($routeParams, CategoriesService) {
 
   	// Categories list
-    this.categoriesList = [
-    	'montagne',
-    	'forest',
-    	'apocalypse',
-    	'desert',
-    	'jungle'
-    ];
+    this.categoriesList = CategoriesService.getCategories();
 
     // Category View
     this.category = $routeParams.name;
