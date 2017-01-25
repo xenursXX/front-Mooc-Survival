@@ -8,9 +8,11 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('HomeCtrl', function (CategoriesService) {
+  .controller('HomeCtrl', function (CategoriesService, CoursesService) {
     
     // Categories list
     this.categoriesList = CategoriesService.getCategories();
-   
+
+    // Courses list
+   	this.coursesList = CoursesService.getCourses();
   });

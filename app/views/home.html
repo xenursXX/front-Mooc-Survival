@@ -2,23 +2,23 @@
   
   <h2>Les 3 derniers cours</h2>
   <div class="row">
-    <div class="col-md-4" ng-repeat="i in [1, 2, 3]">
-      <a class="course-box">
-        <span class="label-category">#Category</span>
-        <div class="footer-course">
-          <div class="avatar"></div>
-          <span class="title">Stage de désert</span>
-          <span class="creator">Benjamin Le roux</span>
-        </div>
-      </a>
-    </div>
+    <div class="col-md-4" ng-repeat="course in home.coursesList">
+        <a class="course-box" href="#/course/{{course.id}}">
+          <span class="label-category">#{{course.category.name}}</span>
+          <div class="footer-course">
+            <div class="avatar"></div>
+            <span class="title">{{course.title}}</span>
+            <span class="creator">{{course.author.username}}</span>
+          </div>
+        </a>
+      </div>
   </div>
   
   <h2>Les 3 catégories les plus populaires</h2>
   <div class="row">
     <div class="col-md-4" ng-repeat="cat in home.categoriesList">
-      <a class="category-box {{ cat }}" href="#/categories/{{ cat }}">
-        <span>#{{ cat }}</span>
+      <a class="category-box {{ cat.category_name }}" href="#/categories/{{ cat.id }}">
+        <span>#{{ cat.category_name }}</span>
       </a>
     </div>
   </div>

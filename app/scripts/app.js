@@ -56,9 +56,9 @@ angular
         controller: 'CategoriesCtrl',
         controllerAs: 'categories'
       })
-      .when('/categories/:name', {
+      .when('/category/:id', {
         templateUrl: 'views/category.html',
-        controller: 'CategoriesCtrl',
+        controller: 'CategoryCtrl',
         controllerAs: 'category'
       })
       .otherwise({

@@ -2,27 +2,33 @@
   <div class="container">
     <a class="logo" href="#/">Logo</a>
     <div class="search-header-box">
-      <input type="text" ng-model="searchText.name" placeholder="Rechercher">
+      <input  type="text" 
+              ng-model="header.search.title" 
+              ng-change="header.search.category_name = header.search.title" 
+              placeholder="Rechercher">
       
-      <div class="result-autocomplete" ng-show="searchText.name.length">
-        <div ng-repeat="resultAutocomplete in header.searchAutocompleteList | filter:searchText as nbResult">
-          
-          <!-- Link category -->
-          <a href="#/categories/{{ resultAutocomplete.name }}" ng-if="resultAutocomplete.type == 2" ng-click="searchText.name = ''">
-            <i class="fa fa-tag" aria-hidden="true"></i>
-            {{ resultAutocomplete.name }}
-          </a>
-          
-          <!-- Link course -->
-          <a href="#/course/{{ resultAutocomplete.id }}" ng-if="resultAutocomplete.type == 1" ng-click="searchText.name = ''">
+      <div class="result-autocomplete" ng-show="header.search.title.length">
+
+        <!-- Course autocomplete -->
+        <div ng-repeat="result in header.coursesList | filter:header.search.title as nbResultCourses">
+          <a href="#/course/{{ result.id }}" ng-click="header.search.title = ''">
             <i class="fa fa-leanpub" aria-hidden="true"></i>
-            {{ resultAutocomplete.name }}
+            {{ result.title }}
           </a>
-          
+        </div>
+
+        <!-- Categories autocomplete -->
+        <div ng-repeat="result in header.categoriesList | filter:header.search.category_name as nbResultCategories">
+          <a href="#/category/{{ result.id }}" ng-click="header.search.title = ''">
+            <i class="fa fa-tag" aria-hidden="true"></i>
+            {{ result.category_name }}
+          </a>
         </div>
         
-        <div ng-if="!nbResult.length">
-          Aucun résultat
+        <div ng-if="!nbResultCategories.length && !nbResultCourses.length">
+          <div class="no-results">
+            Aucun résultat
+          </div>
         </div>
       </div>
     </div>
@@ -31,8 +37,8 @@
 
 <div class="header-secondary">
   <div class="container">
-    <a href="#/categories/{{ category }}" ng-repeat="category in header.categoriesList" ng-class="{'active': header.isActiveCategoryView(category) }">
-      {{ category }}
+    <a href="#/category/{{ category.id }}" ng-repeat="category in header.categoriesList" ng-class="{'active': header.isActiveCategoryView(category.id) }">
+      {{ category.category_name }}
     </a>
   </div>
 </div>

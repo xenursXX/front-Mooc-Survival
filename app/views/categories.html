@@ -1,11 +1,10 @@
 <div class="container" id="categories-page">
   <h1>Les catégories</h1>
-  <h2>Choississez votre catégorie</h2>
 
   <div class="row">
     <div class="col-md-4" ng-repeat="cat in categories.categoriesList">
-    	<a class="category-box {{ cat }}" href="#/categories/{{ cat }}">
-    		<span>#{{ cat }}</span>
+    	<a class="category-box {{ cat.category_name }}" href="#/category/{{ cat.id }}">
+    		<span>#{{ cat.category_name }}</span>
     	</a>
     </div>
   </div>
