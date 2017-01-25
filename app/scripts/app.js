@@ -36,7 +36,7 @@ angular
         controller: 'ProfileCtrl',
         controllerAs: 'profile'
       })
-      .when('/course', {
+      .when('/course/:id', {
         templateUrl: 'views/course.html',
         controller: 'CourseCtrl',
         controllerAs: 'course'
