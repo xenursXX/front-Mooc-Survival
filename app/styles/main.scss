@@ -51,36 +51,38 @@ $blue-light: #48698a;
 		padding: 8px 14px;
 	}
 
-	&:hover{
+	&:hover,
+	&:focus{
 		color: #fff;
 
 		span{
 			padding: 0px;
 			min-width: 100%;
 			line-height: 250px;
+			background-color: rgba(52,73,94,.7);
 			-webkit-border-radius: 0px;
 					border-radius: 0px;
 		}
 	}
 
 	&.montagne{
-		background-image: url("../images/stage-froid.jpg");
+		background-image: url("../images/mountain2.jpg");
 	}
 
 	&.forest{
-		background-image: url("../images/forest.jpg");
+		background-image: url("../images/forest2.jpg");
 	}
 
 	&.desert{
-		background-image: url("../images/desert.jpg");
+		background-image: url("../images/desert2.jpg");
 	}
 
 	&.jungle{
-		background-image: url("../images/wild.jpg");
+		background-image: url("../images/jungle2.jpeg");
 	}
 
 	&.apocalypse{
-		background-image: url("../images/ville.jpg");
+		background-image: url("../images/apocalypse2.jpg");
 	}
 }
 
@@ -160,6 +162,7 @@ $blue-light: #48698a;
 @import "signup.scss";
 @import "home.scss";
 @import "categories.scss";
+@import "category.scss";
 @import "course.scss";
 @import "footer.scss";
 @import "header.scss";

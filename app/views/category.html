@@ -1,29 +1,35 @@
-<div class="container" id="category-page">
-  <h1>Categorie #{{category.category}}</h1>
-  <h2>Voici les cours de la catégorie #{{category.category}}</h2>
-
-  <div class="row">
-  	<div class="col-md-4">
-  		<a class="course-box" href="#/course/1">
-  			<span class="label-category">#Category</span>
-  			<div class="footer-course">
-  				<div class="avatar"></div>
-  				<span class="title">Stage de désert</span>
-  				<span class="creator">Benjamin Le roux</span>
-          <span
-          class="pull-right"
-          uib-rating
-          ng-model="category.stars"
-          max="5"
-          read-only="true"
-          on-leave="overStar = null"
-          titles="['one','two','three']"
-          aria-labelledby="default-rating"
-          >
-          </span>
-  			</div>
-  		</a>
-  	</div>
+<div id="category-page">
+  <div class="background-category {{category.category}}">
+    <div class="container text-right">
+      <h1>#{{category.category}}</h1>
+    </div>
   </div>
 
+  <div class="container category-content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero earum, totam quos explicabo quam magnam pariatur aliquam! Laboriosam quo doloremque possimus, quas ad commodi qui rerum molestiae voluptatum, iure corporis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem modi iure, facilis minus vitae delectus ipsum temporibus aliquid reprehenderit suscipit in dignissimos quae, fuga autem distinctio incidunt quo dolor, neque!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro recusandae, nisi ab autem cum tempore deserunt illo magni quos et atque iure libero amet architecto voluptates, officia ducimus accusantium, corporis!</p>
+
+    <h2>Liste des stages</h2>
+
+    <div class="row">
+    	<div class="col-md-4">
+    		<a class="course-box" href="#/course/1">
+    			<span class="label-category">#Category</span>
+    			<div class="footer-course">
+    				<div class="avatar"></div>
+    				<span class="title">Stage de désert</span>
+    				<span class="creator">Benjamin Le roux</span>
+            <span class="pull-right"
+                  uib-rating
+                  ng-model="category.stars"
+                  max="5"
+                  read-only="true"
+                  on-leave="overStar = null"
+                  titles="['one','two','three']"
+                  aria-labelledby="default-rating">
+            </span>
+    			</div>
+    		</a>
+    	</div>
+    </div>
+  </div>
 </div>
