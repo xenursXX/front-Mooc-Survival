@@ -8,10 +8,41 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('HeaderCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+  .controller('HeaderCtrl', function ($routeParams) {
+
+  	// Fake list
+    this.searchAutocompleteList = [
+      {
+      	"name": "Faire un feu sur une plage",
+      	"id": 1234,
+      	"type" : 1
+      },
+      {
+      	"name": "Créer son habitat dans la jungle",
+      	"id": 1235,
+      	"type" : 1
+      },
+      {
+      	"name": "Montagne",
+      	"type" : 2
+      },
+      {
+      	"name": "Jungle",
+      	"type" : 2
+      }
     ];
+
+    // Categories list
+    this.categoriesList = [
+    	'montagne',
+    	'forest',
+    	'apocalypse',
+    	'desert',
+    	'jungle'
+    ];
+
+    // Is view / Is active?
+    this.isActiveCategoryView = function (category) {
+    	return ($routeParams.name == category) ? true : false;
+    };
   });

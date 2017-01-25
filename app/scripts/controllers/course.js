@@ -8,7 +8,7 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CourseCtrl', function ($resource,$routeParams,$scope) {
+  .controller('CourseCtrl', function ($resource,$routeParams) {
     var courseId = $routeParams.id;
     console.log(courseId);
 
@@ -21,11 +21,11 @@ angular.module('frontMoocSurvivalApp')
       commentForm.date = new Date();
       this.Comment.push(commentForm);
       this.form = {};
-    }
+    };
 
     this.reset = function(){
       this.form = {};
-    }
+    };
 
     this.Comment = [
       {
@@ -49,7 +49,7 @@ angular.module('frontMoocSurvivalApp')
         stars:"4",
         content:"Je suis le dieux maya un peu trop stylé"
       }
-    ]
+    ];
 
   }
 );
