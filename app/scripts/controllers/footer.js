@@ -8,10 +8,8 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('FooterCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('FooterCtrl', function (CategoriesService) {
+
+  	// Categories list
+    this.categoriesList = CategoriesService.getCategories();
   });

@@ -1,0 +1,19 @@
+.footer{
+	background-color: $blue-dark;
+	padding: 10px 0px 20px;
+
+	.sitemap{
+		h3{
+			font-weight: bold;
+			color: #fff;
+			text-transform: uppercase;
+		}
+
+		a{
+			display: block;
+			color: #fff;
+			padding: 2px 0px;
+			text-transform: capitalize;
+		}
+	}
+}
