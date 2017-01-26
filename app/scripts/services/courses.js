@@ -23,8 +23,93 @@ angular.module("frontMoocSurvivalApp")
             "id": 1, 
             "name": "montagne"
           }, 
-          "comments": [], 
-          "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro hic voluptatum, deleniti accusamus ipsum saepe quasi quia omnis sint, veritatis aspernatur facilis, aut suscipit maxime sed, optio nam minus eos.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat ut, temporibus accusantium repellendus eaque voluptas nostrum non quae sapiente, minus voluptatibus iste suscipit necessitatibus velit cum omnis ex ipsam culpa.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa odit aliquam quibusdam alias in quas debitis, mollitia atque perspiciatis reprehenderit veritatis similique delectus hic at fugiat, quod qui aut fuga.", 
+          "comments": [
+            {
+              "id" : 1,
+              "title" : "Ici mon premier commentaire",
+              "date"   :"20-01-2017",
+              "userName" : "Guillaume",
+              "stars" : "2",
+              "content" : "toto c'est moi qui a cramé la poile"
+            },
+            {
+              "id" : 2,
+              "title" : "EASY TWIG",
+              "date"   :"17-01-2017",
+              "userName" : "Trump le gros ***",
+              "stars" : "1",
+              "content" : "J'ai déjà nettoyé l'OBAMACARE"
+            },
+            {
+              "id" : 3,
+              "title" : "Comm commm Common",
+              "date"   :"21-01-2017",
+              "userName" : "quetzalcoatl",
+              "stars" : "4",
+              "content" : "Je suis le dieux maya un peu trop stylé"
+            }
+          ], 
+          "content": {
+            "summary" : " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, tempora dolore officiis quo sed rem cumque sapiente, doloribus modi, dolor aut nihil fugit corrupti porro! Nulla iure corporis explicabo ipsam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ducimus quas tempore, officiis aut voluptatum, accusamus possimus pariatur labore at laudantium odio blanditiis nam, facilis iure tenetur ex ullam minus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, aspernatur numquam. Ullam asperiores eos magni id repellendus quidem et ducimus totam. Nam harum unde excepturi doloremque minima adipisci, ducimus quam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia veniam suscipit voluptatibus magnam eum sit quasi laborum aliquid incidunt accusantium, rem delectus vel modi ut, inventore deserunt. Recusandae, illum laudantium.",
+            "image_url" : "url de l'image",
+            "steps" : [
+              {
+                "type" : 1, // cours
+                "title" : "le titre de ce step",
+                "content" : "le contenu du step 1",
+              },
+              {
+                "type" : 2, // quizz
+                "title" : "le titre du quizz",
+                "quizz" : [
+                  {
+                    "id" : 1,
+                    "question" : "la question",
+                    "responses" : [
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : true
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      }
+                    ]
+                  },
+                  {
+                    "id" : 2,
+                    "question" : "la question numéro 2",
+                    "responses" : [
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : true
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      }
+                    ]
+                  }
+                ],
+              }
+            ],
+          }, 
           "created_at": "25/01/17 - 08:59:53", 
           "id": 1, 
           "title": "Survivre lors d'une avalanche"
@@ -90,6 +175,17 @@ angular.module("frontMoocSurvivalApp")
             }
         }   
         return m;
+      }
+
+      this.getCourse = function (id) {
+        for (var index in courses) {
+            if (courses.hasOwnProperty(index)) {
+                if(courses[index].category.id == id){
+                    return courses[index];
+                    break;
+                }
+            }
+        }   
       }
 
       return this;

@@ -1,68 +1,69 @@
-<div class="container">
-  <h1>Course</h1>
-  <div class="row">
-    <div class="col-md-6">
-      <a class="course-box" href="#/course/1">
-        <span class="label-category">#Category</span>
-        <div class="footer-course">
-          <div class="avatar"></div>
-          <span class="title">Stage de désert</span>
-          <span class="creator">Benjamin Le roux</span>
-
-        </div>
-      </a>
+<div id="course-page">
+  
+  <div class="header-course">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8"></div>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h2 class="text-center">Ratings</h2>
-      <span
-      class="pull-right"
-      uib-rating
-      ng-model="course.stars"
-      max="5"
-      read-only="false"
-      ng-click="course.hoveringOver(course.stars)"
-      on-leave="overStar = null"
-      titles="['one','two','three']"
-      aria-labelledby="default-rating"
-      >
-      </span>
-      <h2 class="text-center">Commentaires</h2>
-      <!-- <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse Vertically</button> -->
-      <div class="panel panel-default" ng-repeat="item in course.Comment track by $index">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a role="button" ng-click="isCollapsed = !isCollapsed">
-                <div class="inline">{{item.title}}</div>
+  </div>
 
-                <div class="inline">{{item.date}}</div>
-              </a>
-            </h4>
-          </div>
-          <div  uib-collapse="isCollapsed" class="panel-collapse" >
-            <div class="panel-body">
-              {{item.content}}
-              <span
-              class="pull-right"
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {{ course.c.content.summary }}
+      </div>
+
+
+
+      <div class="col-md-12">
+        <h2 class="text-center">Ratings</h2>
+        <span class="pull-right"
               uib-rating
-              ng-model="item.stars"
+              ng-model="course.stars"
               max="5"
-              read-only="true"
-
+              read-only="false"
+              ng-click="course.hoveringOver(course.stars)"
               on-leave="overStar = null"
               titles="['one','two','three']"
-              aria-labelledby="default-rating"
-              >
-              </span>
+              aria-labelledby="default-rating" >
+        </span>
+        <h2 class="text-center">Commentaires</h2>
+        <!-- <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse Vertically</button> -->
+        <div class="panel panel-default" ng-repeat="item in course.c.comments track by $index">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a role="button" ng-click="isCollapsed = !isCollapsed">
+                  <div class="inline">{{item.title}}</div>
+
+                  <div class="inline">{{item.date}}</div>
+                </a>
+              </h4>
+            </div>
+            <div  uib-collapse="isCollapsed" class="panel-collapse" >
+              <div class="panel-body">
+                {{item.content}}
+                <span class="pull-right"
+                      uib-rating
+                      ng-model="item.stars"
+                      max="5"
+                      read-only="true"
+                      on-leave="overStar = null"
+                      titles="['one','two','three']"
+                      aria-labelledby="default-rating" >
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-        <form novalidate class="simple-form">
-          <label>Titre du commentaire <input type="text" ng-model="course.form.title" /></label><br />
-          <label>Commentaire <textarea name="name" ng-model="course.form.content" rows="8" cols="80"></textarea></label><br />
-          <input type="button" ng-click="course.reset()" value="Reset" />
-          <input type="submit" ng-click="course.update(course.form)" value="Save" />
-        </form>
-        <pre>Comment = {{course.form | json}}</pre>
+          <form novalidate class="simple-form">
+            <label>Titre du commentaire <input type="text" ng-model="course.form.title" /></label><br />
+            <label>Commentaire <textarea name="name" ng-model="course.form.content" rows="8" cols="80"></textarea></label><br />
+            <input type="button" ng-click="course.reset()" value="Reset" />
+            <input type="submit" ng-click="course.update(course.form)" value="Save" />
+          </form>
+          <pre>Comment = {{course.form | json}}</pre>
+      </div>
     </div>
   </div>
 </div>
