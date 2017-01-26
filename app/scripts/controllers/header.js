@@ -8,7 +8,7 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('HeaderCtrl', function ($routeParams, CategoriesService, CoursesService) {
+  .controller('HeaderCtrl', function ($routeParams, CategoriesService, CoursesService, UserService, ngDialog) {
 
   	// Fake list
     this.coursesList = CoursesService.getCourses();
@@ -21,9 +21,18 @@ angular.module('frontMoocSurvivalApp')
     	return ($routeParams.id == category) ? true : false;
     };
 
+    // Search autocomplete
     this.search = {"title": "", "category_name": ""};
-    // // Title --> Category name (Autocomplete)
-    // this.searchText = function () {
-    //   this.search.category_name == this.search.title;
-    // }
+    
+    // Is connected
+    this.isLogged = function () {
+        return UserService.isConnected();
+    }
+
+    this.openLogin = function () {
+        ngDialog.open({
+            template: 'views/includes/login-modal.html',
+            controller: 'LoginCtrl as login'
+        });
+    }
   });

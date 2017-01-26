@@ -8,7 +8,13 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('LoginCtrl', function () {
-    
+  .controller('LoginCtrl', function (UserService, $location, ngDialog) {
+
+    this.submitLogin = function () {
+    	UserService.logIn();
+    	ngDialog.closeAll();
+    	$location.path('/');
+    }
+
   }
 );

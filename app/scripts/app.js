@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'angularMoment',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngDialog'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -40,11 +41,6 @@ angular
         templateUrl: 'views/course.html',
         controller: 'CourseCtrl',
         controllerAs: 'course'
-      })
-      .when('/login', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'login'
       })
       .when('/signup', {
         templateUrl: 'views/signup.html',

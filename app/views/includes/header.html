@@ -32,6 +32,15 @@
         </div>
       </div>
     </div>
+
+    <div class="block-right" ng-if="!header.isLogged()">      
+      <button ng-click="header.openLogin()">Connexion</button>
+      <a href="#/signup" class="sign-up">Inscription</a>
+    </div>
+
+    <div class="block-right" ng-if="header.isLogged()">      
+      <a href="#/profile" class="avatar-profile"></a>
+    </div>
   </div>
 </div>
 
