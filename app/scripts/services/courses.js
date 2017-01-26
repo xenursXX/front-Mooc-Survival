@@ -63,7 +63,7 @@ angular.module("frontMoocSurvivalApp")
                 "title" : "le titre du quizz",
                 "quizz" : [
                   {
-                    "id" : 1,
+                    "id" : 0,
                     "question" : "la question",
                     "responses" : [
                       {
@@ -85,7 +85,7 @@ angular.module("frontMoocSurvivalApp")
                     ]
                   },
                   {
-                    "id" : 2,
+                    "id" : 1,
                     "question" : "la question numéro 2",
                     "responses" : [
                       {
@@ -124,7 +124,67 @@ angular.module("frontMoocSurvivalApp")
             "name": "apocalypse"
           }, 
           "comments": [], 
-          "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis qui molestiae, beatae ex natus dolore voluptates magni molestias suscipit ipsa, voluptatum quam error porro atque doloribus repudiandae modi sit nam!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, odit, eos? Aliquid ut nesciunt ab est maxime totam veritatis voluptatem obcaecati. Natus quis placeat, consequatur magnam quasi maxime soluta possimus.", 
+          "content": {
+            "summary" : " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, tempora dolore officiis quo sed rem cumque sapiente, doloribus modi, dolor aut nihil fugit corrupti porro! Nulla iure corporis explicabo ipsam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ducimus quas tempore, officiis aut voluptatum, accusamus possimus pariatur labore at laudantium odio blanditiis nam, facilis iure tenetur ex ullam minus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, aspernatur numquam. Ullam asperiores eos magni id repellendus quidem et ducimus totam. Nam harum unde excepturi doloremque minima adipisci, ducimus quam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia veniam suscipit voluptatibus magnam eum sit quasi laborum aliquid incidunt accusantium, rem delectus vel modi ut, inventore deserunt. Recusandae, illum laudantium.",
+            "image_url" : "url de l'image",
+            "steps" : [
+              {
+                "type" : 1, // cours
+                "title" : "le titre de ce step",
+                "content" : "le contenu du step 1",
+              },
+              {
+                "type" : 2, // quizz
+                "title" : "le titre du quizz",
+                "quizz" : [
+                  {
+                    "id" : 0,
+                    "question" : "la question",
+                    "responses" : [
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : true
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      }
+                    ]
+                  },
+                  {
+                    "id" : 1,
+                    "question" : "la question numéro 2",
+                    "responses" : [
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : true
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      }
+                    ]
+                  }
+                ],
+              }
+            ],
+          }, 
           "created_at": "25/01/17 - 08:59:53", 
           "id": 2, 
           "title": "Préparer ses armes"
@@ -139,7 +199,67 @@ angular.module("frontMoocSurvivalApp")
             "name": "desert"
           }, 
           "comments": [], 
-          "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum corrupti impedit facere hic, beatae, culpa id consequatur quasi quibusdam aut ullam voluptates quae perferendis delectus. Quas, ab maxime nostrum amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem aspernatur recusandae doloribus nihil! Natus numquam ipsa vitae provident qui quam similique odit quia sunt ratione. Tempora totam, eligendi tempore eum!", 
+          "content": {
+            "summary" : " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, tempora dolore officiis quo sed rem cumque sapiente, doloribus modi, dolor aut nihil fugit corrupti porro! Nulla iure corporis explicabo ipsam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ducimus quas tempore, officiis aut voluptatum, accusamus possimus pariatur labore at laudantium odio blanditiis nam, facilis iure tenetur ex ullam minus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, aspernatur numquam. Ullam asperiores eos magni id repellendus quidem et ducimus totam. Nam harum unde excepturi doloremque minima adipisci, ducimus quam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia veniam suscipit voluptatibus magnam eum sit quasi laborum aliquid incidunt accusantium, rem delectus vel modi ut, inventore deserunt. Recusandae, illum laudantium.",
+            "image_url" : "url de l'image",
+            "steps" : [
+              {
+                "type" : 1, // cours
+                "title" : "le titre de ce step",
+                "content" : "le contenu du step 1",
+              },
+              {
+                "type" : 2, // quizz
+                "title" : "le titre du quizz",
+                "quizz" : [
+                  {
+                    "id" : 0,
+                    "question" : "la question",
+                    "responses" : [
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : true
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      }
+                    ]
+                  },
+                  {
+                    "id" : 1,
+                    "question" : "la question numéro 2",
+                    "responses" : [
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : true
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      }
+                    ]
+                  }
+                ],
+              }
+            ],
+          }, 
           "created_at": "25/01/17 - 08:59:53", 
           "id": 3, 
           "title": "Avoir de l'eau"
@@ -154,7 +274,67 @@ angular.module("frontMoocSurvivalApp")
             "name": "foret"
           }, 
           "comments": [], 
-          "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, mollitia error dolore eaque doloribus tempora eum harum, amet sunt nemo voluptatibus magnam voluptate, adipisci obcaecati repellat at deserunt laudantium accusantium.", 
+          "content": {
+            "summary" : " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, tempora dolore officiis quo sed rem cumque sapiente, doloribus modi, dolor aut nihil fugit corrupti porro! Nulla iure corporis explicabo ipsam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ducimus quas tempore, officiis aut voluptatum, accusamus possimus pariatur labore at laudantium odio blanditiis nam, facilis iure tenetur ex ullam minus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, aspernatur numquam. Ullam asperiores eos magni id repellendus quidem et ducimus totam. Nam harum unde excepturi doloremque minima adipisci, ducimus quam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia veniam suscipit voluptatibus magnam eum sit quasi laborum aliquid incidunt accusantium, rem delectus vel modi ut, inventore deserunt. Recusandae, illum laudantium.",
+            "image_url" : "url de l'image",
+            "steps" : [
+              {
+                "type" : 1, // cours
+                "title" : "le titre de ce step",
+                "content" : "le contenu du step 1",
+              },
+              {
+                "type" : 2, // quizz
+                "title" : "le titre du quizz",
+                "quizz" : [
+                  {
+                    "id" : 0,
+                    "question" : "la question",
+                    "responses" : [
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : true
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      }
+                    ]
+                  },
+                  {
+                    "id" : 1,
+                    "question" : "la question numéro 2",
+                    "responses" : [
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : true
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      },
+                      {
+                        "content" : "loredjezidjeizodioezjaiodez",
+                        "good" : false
+                      }
+                    ]
+                  }
+                ],
+              }
+            ],
+          }, 
           "created_at": "25/01/17 - 08:59:53", 
           "id": 4, 
           "title": "Grimper aux arbres"

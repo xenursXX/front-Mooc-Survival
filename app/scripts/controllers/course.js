@@ -9,9 +9,14 @@
  */
 angular.module('frontMoocSurvivalApp')
   .controller('CourseCtrl', function ($resource, $routeParams, CoursesService) {
-    var courseId = $routeParams.id;
-    console.log(courseId);
 
+    var courseId    = $routeParams.id;
+    this.courseStep  = $routeParams.step;
+
+    this.c = CoursesService.getCourse(courseId);
+
+
+    // Commentary
     this.update = function(commentForm){
       console.log('comment', commentForm);
       console.log('this', this);
@@ -25,7 +30,39 @@ angular.module('frontMoocSurvivalApp')
       this.form = {};
     };
 
-    this.c = CoursesService.getCourse(1);
+    
+
+    // Result quizz
+    this.result = function () {
+      var r = 0;
+
+      if(!this.getNumbersAnswers()) {
+        console.log("toutes les questions n(ont pas ete remplies")
+        return;
+      };
+
+      for (var index in this.answers) {
+        if (this.answers.hasOwnProperty(index)) {
+          if( this.c.content.steps[this.courseStep - 1].quizz[index].responses[this.answers[index]].good == true) {
+            r++;
+          }
+        }
+      }   
+
+      console.log('score', r);
+      return r;
+    }
+
+    this.getNumbersAnswers = function() {
+      var nb = 0;
+      for (var index in this.answers) {
+        if (this.answers.hasOwnProperty(index)) {
+          nb++;
+        }
+      } 
+
+      return (nb == this.c.content.steps[this.courseStep - 1].quizz.length) ? true : false;
+    }
 
   }
 );

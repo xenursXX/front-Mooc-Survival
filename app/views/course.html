@@ -3,21 +3,69 @@
   <div class="header-course">
     <div class="container">
       <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-8"></div>
+        <div class="col-md-4">
+          <div class="img-course"></div>
+        </div>
+        <div class="col-md-8">
+          <h1>{{ course.c.title }}</h1>
+          <span class="label-category">#{{ course.c.category.name }}</span>
+          <span class="author">Created by {{ course.c.author.username }}</span>
+          <span class="created-at">Le {{ course.c.created_at }}</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container course-content">
     <div class="row">
+
+      <!-- Begin course -->
       <div class="col-md-12">
-        {{ course.c.content.summary }}
+        <h2>Résumé</h2>
+        <p>{{ course.c.content.summary }}</p>
+        <h2>Chapitres</h2>
+        <ul class="chapter-list">
+          <li ng-repeat="chapter in course.c.content.steps">
+            <span class="label-chapter" ng-if="chapter.type == 1">Cours</span>
+            <span class="label-chapter" ng-if="chapter.type == 2">Quizz</span>
+            {{ chapter.title }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-12 text-center">
+        <a href="#/course/{{ course.c.id }}/step/1" class="begin-course">Let's go !</a>
       </div>
 
+      
+      <div class="col-md-12" ng-if="course.courseStep">
+        <h2>{{ course.c.content.steps[course.courseStep - 1].title }}</h2>
+        
+        <!-- Basic content -->
+        <div ng-if="course.c.content.steps[course.courseStep - 1].type == 1">
+          <p>{{ course.c.content.steps[course.courseStep - 1].content }}</p>
+        </div>
+
+        <!-- Quizz content -->
+        <div ng-if="course.c.content.steps[course.courseStep - 1].type == 2">
+          <div ng-repeat="quizz in course.c.content.steps[course.courseStep - 1].quizz">
+            <p class="question">{{ quizz.question }}</p>
+            
+            <div class="checkbox" ng-repeat="response in quizz.responses">
+              <label>
+                <input type="radio" ng-model="course.answers[quizz.id]" ng-value="$index"> {{ response.content }} 
+              </label>
+            </div>
+          </div>
+      
+          <button ng-click="course.result()">Valider</button>
+        </div>
+      </div>
+
+      
 
 
       <div class="col-md-12">
+
         <h2 class="text-center">Ratings</h2>
         <span class="pull-right"
               uib-rating
