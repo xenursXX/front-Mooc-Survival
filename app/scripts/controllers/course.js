@@ -8,7 +8,7 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CourseCtrl', function ($resource, $routeParams, CoursesService) {
+  .controller('CourseCtrl', function ($resource, $routeParams, CoursesService, $location, ngDialog) {
 
     var courseId    = $routeParams.id;
     this.courseStep  = $routeParams.step;
@@ -33,14 +33,23 @@ angular.module('frontMoocSurvivalApp')
     
 
     // Result quizz
-    this.result = function () {
+    this.nextStep = function () {
       var r = 0;
+      var nextStepPage = parseInt(this.courseStep) + 1;
 
+      // Simple step courses
+      if(this.c.content.steps[this.courseStep - 1].type == 1) {
+        $location.path('/course/' + courseId + '/step/' + nextStepPage);
+        return;
+      }
+
+      // Check if all response are checked
       if(!this.getNumbersAnswers()) {
-        console.log("toutes les questions n(ont pas ete remplies")
+        this.messageError = "Toutes les questions n'ont pas ete remplies";
         return;
       };
 
+      // Count score
       for (var index in this.answers) {
         if (this.answers.hasOwnProperty(index)) {
           if( this.c.content.steps[this.courseStep - 1].quizz[index].responses[this.answers[index]].good == true) {
@@ -49,9 +58,9 @@ angular.module('frontMoocSurvivalApp')
         }
       }   
 
-      console.log('score', r);
-      return r;
+      return;
     }
+
 
     this.getNumbersAnswers = function() {
       var nb = 0;
@@ -60,7 +69,6 @@ angular.module('frontMoocSurvivalApp')
           nb++;
         }
       } 
-
       return (nb == this.c.content.steps[this.courseStep - 1].quizz.length) ? true : false;
     }
 

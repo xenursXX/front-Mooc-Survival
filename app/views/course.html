@@ -1,6 +1,6 @@
 <div id="course-page">
   
-  <div class="header-course">
+  <div class="header-course" ng-show="!course.courseStep">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -20,7 +20,7 @@
     <div class="row">
 
       <!-- Begin course -->
-      <div class="col-md-12">
+      <div class="col-md-12" ng-show="!course.courseStep">
         <h2>Résumé</h2>
         <p>{{ course.c.content.summary }}</p>
         <h2>Chapitres</h2>
@@ -32,12 +32,12 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-12 text-center">
-        <a href="#/course/{{ course.c.id }}/step/1" class="begin-course">Let's go !</a>
+      <div class="col-md-12 text-center" ng-show="!course.courseStep">
+        <a href="#/course/{{ course.c.id }}/step/1" class="question-button">Let's go !</a>
       </div>
 
       
-      <div class="col-md-12" ng-if="course.courseStep">
+      <div class="col-md-12" ng-show="course.courseStep">
         <h2>{{ course.c.content.steps[course.courseStep - 1].title }}</h2>
         
         <!-- Basic content -->
@@ -47,8 +47,8 @@
 
         <!-- Quizz content -->
         <div ng-if="course.c.content.steps[course.courseStep - 1].type == 2">
-          <div ng-repeat="quizz in course.c.content.steps[course.courseStep - 1].quizz">
-            <p class="question">{{ quizz.question }}</p>
+          <div class="question-block" ng-repeat="quizz in course.c.content.steps[course.courseStep - 1].quizz">
+            <p class="question">{{ $index + 1 }}. {{ quizz.question }}</p>
             
             <div class="checkbox" ng-repeat="response in quizz.responses">
               <label>
@@ -56,15 +56,18 @@
               </label>
             </div>
           </div>
-      
-          <button ng-click="course.result()">Valider</button>
+        </div>
+        
+        <div class="text-center">
+          <button class="question-button" ng-click="course.nextStep()">Valider</button>
+          <p ng-if="course.messageError">{{ course.messageError }}</p>
         </div>
       </div>
 
       
 
 
-      <div class="col-md-12">
+      <div class="col-md-12" ng-show="!course.courseStep">
 
         <h2 class="text-center">Ratings</h2>
         <span class="pull-right"

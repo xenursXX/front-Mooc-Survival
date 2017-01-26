@@ -57,7 +57,8 @@
 			}
 		}
 
-		.begin-course{
+		.question-button{
+			border: none;
 			display: inline-block;
 			margin: 20px auto;
 			cursor: pointer;
@@ -67,6 +68,11 @@
 			font-size: 24px;
 			outline: none;
 			text-transform: uppercase;
+		}
+
+		.question-block{
+			padding: 10px;
+			border-bottom: 1px solid rgba(0,0,0,.1);
 		}
 	}
 }
