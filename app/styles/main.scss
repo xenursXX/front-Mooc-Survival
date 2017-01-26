@@ -2,6 +2,18 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+$blue-dark : #34495e;
+$blue-light : #48698a;
+
+@import "about.scss";
+@import "signup.scss";
+@import "home.scss";
+@import "categories.scss";
+@import "course.scss";
+@import "footer.scss";
+@import "header.scss";
+@import "login.scss";
+@import "profile.scss";
 
 
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700');
@@ -12,14 +24,11 @@ body{
 }
 
 /***** COLOR *****/
-$blue-dark: #2c4346;
-$blue-light: #48698a;
+
 
 
 /***** Global *****/
-.inline{
-	display:inline-block;
-}
+.inline{}
 
 
 /*** Category box ***/
@@ -51,38 +60,36 @@ $blue-light: #48698a;
 		padding: 8px 14px;
 	}
 
-	&:hover,
-	&:focus{
+	&:hover{
 		color: #fff;
 
 		span{
 			padding: 0px;
 			min-width: 100%;
 			line-height: 250px;
-			background-color: rgba(52,73,94,.7);
 			-webkit-border-radius: 0px;
 					border-radius: 0px;
 		}
 	}
 
 	&.montagne{
-		background-image: url("../images/mountain2.jpg");
+		background-image: url("../images/stage-froid.jpg");
 	}
 
-	&.foret{
-		background-image: url("../images/forest2.jpg");
+	&.forest{
+		background-image: url("../images/forest.jpg");
 	}
 
 	&.desert{
-		background-image: url("../images/desert2.jpg");
+		background-image: url("../images/desert.jpg");
 	}
 
 	&.jungle{
-		background-image: url("../images/jungle2.jpeg");
+		background-image: url("../images/wild.jpg");
 	}
 
 	&.apocalypse{
-		background-image: url("../images/apocalypse2.jpg");
+		background-image: url("../images/ville.jpg");
 	}
 }
 
@@ -102,7 +109,7 @@ $blue-light: #48698a;
     display: block;
     text-decoration: none;
     font-size: 16px;
-    background-image: url(../images/giphy.gif);
+    background-image: url(../images/desert.jpg);
 
 	.label-category{
 		position: absolute;
@@ -113,7 +120,6 @@ $blue-light: #48698a;
 		background-color: #fff;
 		color: $blue-dark;
 		line-height: 14px;
-		text-transform: uppercase;
 		-webkit-border-radius: 50px;
 				border-radius: 50px;
 	}
@@ -156,16 +162,3 @@ $blue-light: #48698a;
 		}
 	}
 }
-
-
-
-@import "about.scss";
-@import "signup.scss";
-@import "home.scss";
-@import "categories.scss";
-@import "category.scss";
-@import "course.scss";
-@import "footer.scss";
-@import "header.scss";
-@import "login.scss";
-@import "profile.scss";

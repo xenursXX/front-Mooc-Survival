@@ -8,7 +8,10 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('ProfileCtrl', function () {
-    
+  .controller('ProfileCtrl', function (UserService) {
+    this.userProfile = UserService.userStatic[0];
+    this.nbCourse = this.userProfile.courses.length;
+    console.log(this.userProfile);
+
   }
 );

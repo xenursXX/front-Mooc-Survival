@@ -1,3 +1,19 @@
 <div class="container">
   <p>Profile view</p>
+  <div class="col-md-6">
+      <img class="profile-photo" ng-src="{{profile.userProfile.photo}}" alt="">
+  </div>
+  <div class="col-md-6">
+    <h1>{{profile.userProfile.username}}</h1>
+    <h2>{{profile.userProfile.role}}</h2>
+    <p>Date de naissance: {{profile.userProfile.birthday}}</p>
+    <p>Email : {{profile.userProfile.email}}</p>
+    <p>Nombre de cours :{{profile.nbCourse}}</p>
+  </div>
+  <div class="row">
+    <div ng-repeat="badge in profile.userProfile.badges" class="badges">
+      <div ng-class="toto-{{badges.name}}">{{badge.name}}</div>
+
+    </div>
+  </div>
 </div>
