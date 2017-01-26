@@ -1,12 +1,23 @@
 #signup-page{
+	background-image: url("../images/forest2.jpg");
+	background-size: cover;
+	background-position: center;
+	min-height: 100vh;
 
 	.signup-block{
+		line-height: 1;
+		vertical-align: middle;
 		display: inline-block;
 		margin-left: auto;
 		margin-right: auto;
-		background-color: #fff;
+		background-color: rgba(255,255,255,.8);
 		padding: 20px;
+		color: $blue-dark;
 		box-shadow: 0 1px 1px rgba(0,0,0,.1);
+
+		h1{
+			text-transform: uppercase;
+		}
 
 		input{
 			width: 300px;
@@ -17,7 +28,7 @@
 			outline: none;
 			-webkit-border-radius: 8px;
 					border-radius: 8px;
-			background-color: #f4f4f4;
+			background-color: #fff;
 		}
 
 		button{
@@ -32,13 +43,6 @@
 			-webkit-border-radius: 8px;
 					border-radius: 8px;
 			background-color: #2980b9;
-		}
-	}
-
-	.image-block-signup{
-		img{
-			max-height: 70px;
-			max-width: 70px;
 		}
 	}
 }
