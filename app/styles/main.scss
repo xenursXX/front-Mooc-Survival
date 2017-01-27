@@ -8,6 +8,7 @@ $blue-light : #48698a;
 @import "about.scss";
 @import "signup.scss";
 @import "home.scss";
+@import "category.scss";
 @import "categories.scss";
 @import "course.scss";
 @import "footer.scss";
@@ -67,29 +68,30 @@ body{
 			padding: 0px;
 			min-width: 100%;
 			line-height: 250px;
+			background-color: rgba(52,73,94,.7);
 			-webkit-border-radius: 0px;
 					border-radius: 0px;
 		}
 	}
 
 	&.montagne{
-		background-image: url("../images/stage-froid.jpg");
+		background-image: url("../images/mountain2.jpg");
 	}
 
 	&.forest{
-		background-image: url("../images/forest.jpg");
+		background-image: url("../images/foret2.jpg");
 	}
 
 	&.desert{
-		background-image: url("../images/desert.jpg");
+		background-image: url("../images/desert2.jpg");
 	}
 
 	&.jungle{
-		background-image: url("../images/wild.jpg");
+		background-image: url("../images/jungle2.jpeg");
 	}
 
 	&.apocalypse{
-		background-image: url("../images/ville.jpg");
+		background-image: url("../images/apocalypse2.jpg");
 	}
 }
 
@@ -109,7 +111,7 @@ body{
     display: block;
     text-decoration: none;
     font-size: 16px;
-    background-image: url(../images/desert.jpg);
+    background-image: url(../images/giphy.gif);
 
 	.label-category{
 		position: absolute;
@@ -139,7 +141,7 @@ body{
 			position: absolute;
 			width: 40px;
 			height: 40px;
-			background-image: url(../images/stage-froid.jpg);
+			background-image: url(../images/giphy.gif);
 			background-size: cover;
     		background-position: center center;
     		-webkit-border-radius: 50%;
