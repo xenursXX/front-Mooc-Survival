@@ -1,13 +1,17 @@
-.toto-jungle1{
-  background-color: blue;
-  color:blue;
-}
-.toto-zombie2{
-  background-color: green;
-  color:green;
+.circleBadge{
+  // background-image: url(../../images/zombie.jpg);
+  width:120px;
+  height: 120px;
+  border-radius: 100%;
 }
 .profile-photo{
   width: 200px;
   height: 200px;
   border-radius: 100%;
+}
+.trait{
+  border-top: 2px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
 }
