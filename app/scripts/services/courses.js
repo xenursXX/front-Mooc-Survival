@@ -284,6 +284,11 @@ angular.module("frontMoocSurvivalApp")
                 "content" : "le contenu du step 1",
               },
               {
+                "type" : 1, // cours
+                "title" : "le titre de ce step",
+                "content" : "le contenu du step 2",
+              },
+              {
                 "type" : 2, // quizz
                 "title" : "le titre du quizz",
                 "quizz" : [

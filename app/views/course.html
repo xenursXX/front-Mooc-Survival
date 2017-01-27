@@ -36,8 +36,21 @@
         <a href="#/course/{{ course.c.id }}/step/1" class="question-button">Let's go !</a>
       </div>
 
-      
+      <!-- Step course -->
       <div class="col-md-12" ng-show="course.courseStep">
+        
+        <!-- Timeline -->
+        <div class="timeline-bar">
+          <div class="bar-timeline-background" style="width : calc(100% - (100%/{{ course.c.content.steps.length }}) )">
+              <div style="width: calc( ({{ course.courseStep - 1}} / {{ course.c.content.steps.length - 1}}) *  100%)"></div>
+          </div>
+
+          <div class="column" ng-repeat="timeline in course.c.content.steps">
+              <div class="timeline-round" ng-class="{'done' : (course.courseStep - 1) > $index , 'active' : (course.courseStep - 1) == $index }"><div></div></div>
+              <span>{{ timeline.title }}</span>
+          </div>
+        </div>
+
         <h2>{{ course.c.content.steps[course.courseStep - 1].title }}</h2>
         
         <!-- Basic content -->
@@ -67,8 +80,9 @@
       
 
 
-      <div class="col-md-12" ng-show="!course.courseStep">
 
+      <!-- Commentary block -->
+      <div class="col-md-12" ng-show="!course.courseStep">
         <h2 class="text-center">Ratings</h2>
         <span class="pull-right"
               uib-rating
@@ -83,37 +97,37 @@
         <h2 class="text-center">Commentaires</h2>
         <!-- <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse Vertically</button> -->
         <div class="panel panel-default" ng-repeat="item in course.c.comments track by $index">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a role="button" ng-click="isCollapsed = !isCollapsed">
-                  <div class="inline">{{item.title}}</div>
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a role="button" ng-click="isCollapsed = !isCollapsed">
+                <div class="inline">{{item.title}}</div>
 
-                  <div class="inline">{{item.date}}</div>
-                </a>
-              </h4>
-            </div>
-            <div  uib-collapse="isCollapsed" class="panel-collapse" >
-              <div class="panel-body">
-                {{item.content}}
-                <span class="pull-right"
-                      uib-rating
-                      ng-model="item.stars"
-                      max="5"
-                      read-only="true"
-                      on-leave="overStar = null"
-                      titles="['one','two','three']"
-                      aria-labelledby="default-rating" >
-                </span>
-              </div>
+                <div class="inline">{{item.date}}</div>
+              </a>
+            </h4>
+          </div>
+          <div  uib-collapse="isCollapsed" class="panel-collapse" >
+            <div class="panel-body">
+              {{item.content}}
+              <span class="pull-right"
+                    uib-rating
+                    ng-model="item.stars"
+                    max="5"
+                    read-only="true"
+                    on-leave="overStar = null"
+                    titles="['one','two','three']"
+                    aria-labelledby="default-rating" >
+              </span>
             </div>
           </div>
-          <form novalidate class="simple-form">
-            <label>Titre du commentaire <input type="text" ng-model="course.form.title" /></label><br />
-            <label>Commentaire <textarea name="name" ng-model="course.form.content" rows="8" cols="80"></textarea></label><br />
-            <input type="button" ng-click="course.reset()" value="Reset" />
-            <input type="submit" ng-click="course.update(course.form)" value="Save" />
-          </form>
-          <pre>Comment = {{course.form | json}}</pre>
+        </div>
+        <form novalidate class="simple-form">
+          <label>Titre du commentaire <input type="text" ng-model="course.form.title" /></label><br />
+          <label>Commentaire <textarea name="name" ng-model="course.form.content" rows="8" cols="80"></textarea></label><br />
+          <input type="button" ng-click="course.reset()" value="Reset" />
+          <input type="submit" ng-click="course.update(course.form)" value="Save" />
+        </form>
+        <pre>Comment = {{course.form | json}}</pre>
       </div>
     </div>
   </div>
