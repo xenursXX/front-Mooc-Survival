@@ -271,7 +271,7 @@ angular.module("frontMoocSurvivalApp")
           }, 
           "category": {
             "id": 4, 
-            "name": "foret"
+            "name": "forest"
           }, 
           "comments": [], 
           "content": {

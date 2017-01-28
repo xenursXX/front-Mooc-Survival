@@ -1,25 +1,93 @@
-<div class="container">
-  
-  <h2>Les 3 derniers cours</h2>
-  <div class="row">
-    <div class="col-md-4" ng-repeat="course in home.coursesList">
-        <a class="course-box" href="#/course/{{course.id}}">
-          <span class="label-category">#{{course.category.name}}</span>
-          <div class="footer-course">
-            <div class="avatar"></div>
-            <span class="title">{{course.title}}</span>
-            <span class="creator">{{course.author.username}}</span>
-          </div>
-        </a>
+<div id="home">
+
+  <div class="home-background">
+    <div>
+      <h1>Survival</h1>
+      <span>Come on! Let's go!</span>
+    </div>
+  </div>
+
+  <div class="home-block-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+            <div class="logo-homepage"></div>
+        </div>
+        <div class="col-md-8">
+            <h2>Bienvenue sur mooc survivor</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod ipsum, voluptatum minus voluptas doloribus deleniti optio hic itaque ipsa fuga nobis eius consequatur, fugiat unde ratione similique? Deleniti, provident, voluptates.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus laboriosam unde sapiente est repellat a in, ea dolores odio voluptatibus nobis dolor dolorem ratione vitae, sed. Officia non est reiciendis?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas sapiente eius quae totam nobis, doloremque, perspiciatis et laboriosam similique eveniet quia explicabo! Alias consequatur error totam corrupti iusto nostrum voluptas!</p>
+        </div>
       </div>
+    </div>
   </div>
   
-  <h2>Les 3 catégories les plus populaires</h2>
-  <div class="row">
-    <div class="col-md-4" ng-repeat="cat in home.categoriesList">
-      <a class="category-box {{ cat.category_name }}" href="#/category/{{ cat.id }}">
-        <span>#{{ cat.category_name }}</span>
-      </a>
+  <div class="home-block-2">
+    <div class="container">
+      <h2 class="text-center">Les cours les plus populaires</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae excepturi non assumenda placeat suscipit earum repellendus quae sint accusantium, magnam nobis praesentium odio. Nemo placeat sequi voluptate excepturi dolorem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit quaerat eum, aliquam animi error dolorum laudantium culpa, tempora dolores, soluta nulla ducimus minima quod itaque quos repellat molestiae quia in.</p>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="course in home.coursesList">
+            <a class="course-box" href="#/course/{{course.id}}">
+              <span class="label-category">#{{course.category.name}}</span>
+              <div class="footer-course">
+                <div class="avatar"></div>
+                <span class="title">{{course.title}}</span>
+                <span class="creator">{{course.author.username}}</span>
+              </div>
+            </a>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="home-block-3">
+    <div class="container">
+      <h2 class="text-center">Nos catégories</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta voluptates sint nam autem, exercitationem asperiores libero, placeat ipsum incidunt beatae dignissimos maxime minus aut vero, inventore similique adipisci natus reprehenderit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate asperiores ex, eveniet, vel eaque minima nesciunt totam. Quibusdam aliquid mollitia commodi sint illum unde dicta facilis, molestias recusandae debitis, voluptates!</p>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="cat in home.categoriesList">
+          <a class="category-box {{ cat.category_name }}" href="#/category/{{ cat.id }}">
+            <span>#{{ cat.category_name }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-block-4">
+    <div class="container">
+      <h2>Apprendre la survie</h2>
+      <p>Les fiches techniques</p>
+      <div class="row">
+        <div class="col-md-3 text-center">
+          <img src="../images/chasse.png" alt="chasse">
+          <h3>Chasse</h3>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../images/boussole.png" alt="boussole">
+          <h3>Se repérer</h3>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../images/peche.png" alt="peche">
+          <h3>Pêche</h3>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../images/medical.png" alt="medical">
+          <h3>Medical</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-block-5">
+    <div class="container">
+      <h2>Cinq conseils de survie</h2>
+      <p>s'inscire à la newsletter</p>
+      <form>
+        <input type="email" placeholder="Email address">
+        <input type="button" value="S'inscrire">
+      </form>
     </div>
   </div>
 </div>

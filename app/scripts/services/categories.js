@@ -25,7 +25,7 @@ angular.module("frontMoocSurvivalApp")
         'id': 3
       },
       {
-        'category_name': 'foret',
+        'category_name': 'forest',
         'id': 4
       },
       {
