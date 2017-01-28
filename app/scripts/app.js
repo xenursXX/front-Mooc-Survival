@@ -19,6 +19,7 @@ angular
     'angularMoment',
     'ui.bootstrap',
     'ngDialog'
+
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -61,6 +62,11 @@ angular
         templateUrl: 'views/category.html',
         controller: 'CategoryCtrl',
         controllerAs: 'category'
+      })
+      .when('/createcourse', {
+        templateUrl: 'views/createcourse.html',
+        controller: 'CreateCourseCtrl',
+        controllerAs: 'create'
       })
       .otherwise({
         redirectTo: '/'

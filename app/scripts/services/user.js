@@ -13,10 +13,52 @@ angular.module("frontMoocSurvivalApp")
 
     this.userStatic = [
       {
-        "comments":[],
         "courses": [
-          {"tata":"tyutu"},
-          {"tata":"tyutu"}
+          {
+            "author": {
+                "id": 1,
+                "username": "bob"
+            },
+            "category": {
+                "id": 1,
+                "name": "fire"
+            },
+            "comments": [],
+            "content": "How to start a fire with green wood",
+            "created_at": "25/01/17 - 08:59:53",
+            "id": 1,
+            "title": "Start a fire"
+          },
+          {
+            "author": {
+                "id": 1,
+                "username": "bob"
+            },
+            "category": {
+                "id": 1,
+                "name": "fire"
+            },
+            "comments": [],
+            "content": "Which mushrooms should i eat",
+            "created_at": "25/01/17 - 08:59:53",
+            "id": 2,
+            "title": "Eat food"
+          },
+          {
+            "author": {
+                "id": 1,
+                "username": "bob"
+            },
+            "category": {
+                "id": 1,
+                "name": "fire"
+            },
+            "comments": [],
+            "content": "How to kill zombie with fire",
+            "created_at": "25/01/17 - 08:59:53",
+            "id": 3,
+            "title": "I love u Baby"
+          },
         ],
         "id": 1,
         "username": "bob",

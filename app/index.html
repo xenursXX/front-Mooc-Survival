@@ -18,13 +18,13 @@
     <!-- endbuild -->
   </head>
   <body ng-app="frontMoocSurvivalApp">
-    
+
     <div ng-include="'views/includes/header.html'" ng-controller="HeaderCtrl as header"></div>
 
     <div ng-view="" style="min-height: 100vh"></div>
 
     <div ng-include="'views/includes/footer.html'" ng-controller="FooterCtrl as footer"></div>
-    
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
@@ -51,6 +51,9 @@
     <script src="bower_components/angular-moment/angular-moment.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/ng-dialog/js/ngDialog.js"></script>
+    <script src="bower_components/tinymce/tinymce.js"></script>
+    <script src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+    <script src="bower_components/jqlite/jqlite.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -64,6 +67,7 @@
         <script src="scripts/controllers/category.js"></script>
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/signup.js"></script>
+        <script src="scripts/controllers/createcourse.js"></script>
         <script src="scripts/controllers/footer.js"></script>
         <script src="scripts/controllers/header.js"></script>
         <script src="scripts/services/categories.js"></script>
