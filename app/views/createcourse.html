@@ -6,4 +6,17 @@
 <b>Image size should be lessthan 500kb</b>
   <p ng-bind="create.text"></p>{{create.text}}
   <a class="btn btn-primary" ng-click="create.getData()">toto</a>
+
+  <h1>Creation du Quizz</h1>
+
+  <form action="">
+    <label>Question 1<input ng-model="create.myform.q1" type="text"></label><br>
+    <div class="reponse">
+      <label for="">Reponse 1 du Quizz<input ng-model="create.myform.r1" type="text"> <input name="onecheck" ng-model="create.myform.checkbox" value="r1" type="radio"></label><br>
+      <label for="">Réponse 2 Quizz<input ng-model="create.myform.r2" type="text"> <input name="onecheck" ng-model="create.myform.checkbox" value="r2" type="radio"></label><br>
+      <label for="">Réponse 3 Quizz<input ng-model="create.myform.r3" type="text"> <input name="onecheck" ng-model="create.myform.checkbox" value="r3" type="radio"></label><br>
+      <label for="">Réponse 4 du Quizz<input ng-model="create.form.r4" type="text"> <input name="onecheck" ng-model="create.myform.checkbox" value="r4" type="radio"></label><br>
+    </div>
+    <input type="submit" ng-click="create.submited(create.myform)"> <br><br>
+  </form>
 </div>

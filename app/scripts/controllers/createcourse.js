@@ -18,6 +18,15 @@ angular.module('frontMoocSurvivalApp')
       console.log('toto',tinyMCE);
       console.log(tinyMCE.activeEditor.getContent());
     }
+    this.reps = [
+      {name:"q1", checked:false},
+      {name:"q2", checked:false},
+      {name:"q3", checked:false},
+      {name:"q4", checked:false}
+    ]
+    this.submited = function(dataForm){
+      console.log('dataForm',dataForm);
+    }
 
   }
 );
