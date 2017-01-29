@@ -1,22 +1,33 @@
 <div class="container">
   <h1>TOTO créé un cours</h1>
+
+  <h1>Ajout de l'image de couverture</h1>
+  <input type="file" nv-file-select uploader="create.uploader"/><br/>
+       <ul>
+           <li ng-repeat="item in create.uploader.queue">
+               Name: <span ng-bind="item.file.name"></span><br/>
+               <button ng-click="item.upload()">upload</button>
+           </li>
+       </ul>
       <textarea id="tinymce1" data-ng-model="create.text"></textarea>
-      <title>Local image loading in to tinymce</title>
 <br/>
-<b>Image size should be lessthan 500kb</b>
+
   <p ng-bind="create.text"></p>{{create.text}}
-  <a class="btn btn-primary" ng-click="create.getData()">toto</a>
+  <a class="btn btn-primary" ng-click="create.getData()">Valider mon cours</a>
 
   <h1>Creation du Quizz</h1>
 
-  <form action="">
-    <label>Question 1<input ng-model="create.myform.q1" type="text"></label><br>
+  <form ng-repeat="item in [1,2,3,4,5]">
+    <label>Question {{$index+1}}<input ng-model="create.myform[$index].q1" type="text"></label><br>
     <div class="reponse">
-      <label for="">Reponse 1 du Quizz<input ng-model="create.myform.r1" type="text"> <input name="onecheck" ng-model="create.myform.checkbox" value="r1" type="radio"></label><br>
-      <label for="">Réponse 2 Quizz<input ng-model="create.myform.r2" type="text"> <input name="onecheck" ng-model="create.myform.checkbox" value="r2" type="radio"></label><br>
-      <label for="">Réponse 3 Quizz<input ng-model="create.myform.r3" type="text"> <input name="onecheck" ng-model="create.myform.checkbox" value="r3" type="radio"></label><br>
-      <label for="">Réponse 4 du Quizz<input ng-model="create.form.r4" type="text"> <input name="onecheck" ng-model="create.myform.checkbox" value="r4" type="radio"></label><br>
+      <label for="">Reponse 1 du Quizz<input ng-model="create.myform[$index].r1" type="text"> <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r1" type="radio"></label><br>
+      <label for="">Réponse 2 Quizz<input ng-model="create.myform[$index].r2" type="text"> <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r2" type="radio"></label><br>
+      <label for="">Réponse 3 Quizz<input ng-model="create.myform[$index].r3" type="text"> <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r3" type="radio"></label><br>
+      <label for="">Réponse 4 du Quizz<input ng-model="create.form[$index].r4" type="text"> <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r4" type="radio"></label><br>
     </div>
-    <input type="submit" ng-click="create.submited(create.myform)"> <br><br>
   </form>
+  <a class="btn btn-primary" ng-click="create.submited(create.myform, $index)">Valider mon Quizz</a> <br><br>
+
+
+
 </div>

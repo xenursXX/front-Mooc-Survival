@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'angularMoment',
     'ui.bootstrap',
-    'ngDialog'
+    'ngDialog',
+    'angularFileUpload'
 
   ])
   .config(function ($routeProvider) {

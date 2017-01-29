@@ -8,7 +8,10 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CreateCourseCtrl', function ($resource, $routeParams, CoursesService, $location) {
+  .controller('CreateCourseCtrl', function ($resource, $routeParams, CoursesService, $location, FileUploader) {
+
+    this.uploader = new FileUploader();
+
     tinymce.init({
       selector: 'textarea',  // change this value according to your HTML
       plugins: ["image link save emoticons code colorpicker fullscreen media"],
@@ -18,15 +21,12 @@ angular.module('frontMoocSurvivalApp')
       console.log('toto',tinyMCE);
       console.log(tinyMCE.activeEditor.getContent());
     }
-    this.reps = [
-      {name:"q1", checked:false},
-      {name:"q2", checked:false},
-      {name:"q3", checked:false},
-      {name:"q4", checked:false}
-    ]
-    this.submited = function(dataForm){
-      console.log('dataForm',dataForm);
+    var SendDataForm = [];
+    this.submited = function(dataForm, index){
+      SendDataForm.push(dataForm);
+      console.log('SendDataForm',dataForm);
     }
+
 
   }
 );
