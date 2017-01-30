@@ -23,7 +23,7 @@ angular.module('frontMoocSurvivalApp')
 
     // Search autocomplete
     this.search = {"title": "", "category_name": ""};
-    
+
     // Is connected
     this.isLogged = function () {
         return UserService.isConnected();

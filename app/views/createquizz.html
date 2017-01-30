@@ -1,0 +1,56 @@
+<div class="container">
+  <h1>Creation du Quizz</h1>
+
+  <form ng-repeat="item in create.arrayQuestions track by $index" class="monForm">
+    <div class="col-md-12 question">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+        <input placeholder="Question" class="form-control" ng-model="create.myform[$index].q1" type="text">
+      </div>
+    </div>
+    <div class="reponse col-md-3">
+      <div class="input-group">
+        <span class="input-group-addon">
+           <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r1" class="" type="radio">
+        </span>
+        <input class="form-control" placeholder="Réponse n°1" ng-model="create.myform[$index].r1" type="text">
+      </div>
+    </div>
+    <div class="reponse col-md-3">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r2" class="" type="radio">
+        </span>
+      <input class="form-control" placeholder="Réponse n°2" ng-model="create.myform[$index].r2" type="text">
+    </div>
+  </div>
+  <div class="reponse col-md-3">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r3" class="" type="radio">
+      </span>
+    <input class="form-control" placeholder="Réponse n°3" ng-model="create.myform[$index].r3" type="text">
+  </div>
+  </div>
+  <div class="reponse col-md-3">
+  <div class="input-group">
+    <span class="input-group-addon">
+      <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r4" class="" type="radio">
+    </span>
+    <input class="form-control" placeholder="Réponse n°4" ng-model="create.form[$index].r4" type="text">
+  </div>
+  </div>
+
+  <div class="ligne col-md-offset-3 col-md-6"></div><br>
+
+  </form>
+  <div class="col-md-12">
+    <div class="text-center">
+      <a href="" ng-if="create.displayQuestion" ng-click="create.addQuestion()"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>  Ajout d'une question</a><br>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <a class="btn btn-primary" ng-click="create.submited(create.myform, $index)">Valider mon Quizz</a> <br><br>
+  </div>
+  </div>
+</div>

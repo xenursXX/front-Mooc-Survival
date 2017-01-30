@@ -9,7 +9,7 @@
  */
 angular.module('frontMoocSurvivalApp')
   .controller('HomeCtrl', function (CategoriesService, CoursesService) {
-    
+
     // Categories list
     this.categoriesList = CategoriesService.getCategories();
 
