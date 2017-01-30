@@ -11,26 +11,34 @@
 angular.module("frontMoocSurvivalApp")
   .factory("CategoriesService", function ($http,$q) {
 
-	  var cat = [];
-
-    var toto = function () {
-      $http({
-        method: 'GET',
-        url: 'http://localhost:5555/categories'
-      }).then(function successCallback(response) {
-        console.log(response.data.categories)
-        cat.push(response.data.categories) ;
-      }, function errorCallback(response) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-      });
+    var cat = [
+    {
+      'category_name': 'montagne',
+      'id': 1
+    },
+    {
+      'category_name': 'apocalypse',
+      'id': 2
+    },
+    {
+      'category_name': 'desert',
+      'id': 3
+    },
+    {
+      'category_name': 'forest',
+      'id': 4
+    },
+    {
+      'category_name': 'jungle',
+      'id': 5
     }
+  ];
 
-    toto();
+
 
 
     this.getCategories = function () {
-      return cat[0];
+      return cat;
     }
 
     this.getCategoryName = function (cat_id) {
