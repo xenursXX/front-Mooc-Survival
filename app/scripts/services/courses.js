@@ -271,7 +271,7 @@ angular.module("frontMoocSurvivalApp")
           }, 
           "category": {
             "id": 4, 
-            "name": "foret"
+            "name": "forest"
           }, 
           "comments": [], 
           "content": {
@@ -282,6 +282,11 @@ angular.module("frontMoocSurvivalApp")
                 "type" : 1, // cours
                 "title" : "le titre de ce step",
                 "content" : "le contenu du step 1",
+              },
+              {
+                "type" : 1, // cours
+                "title" : "le titre de ce step",
+                "content" : "le contenu du step 2",
               },
               {
                 "type" : 2, // quizz

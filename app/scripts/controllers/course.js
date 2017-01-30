@@ -8,7 +8,7 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CourseCtrl', function ($resource, $routeParams, CoursesService, $location, ngDialog) {
+  .controller('CourseCtrl', function ($resource, $routeParams, CoursesService, $location, ngDialog, $scope) {
 
     var courseId    = $routeParams.id;
     this.courseStep  = $routeParams.step;
@@ -31,37 +31,7 @@ angular.module('frontMoocSurvivalApp')
     };
 
     
-
-    // Result quizz
-    this.nextStep = function () {
-      var r = 0;
-      var nextStepPage = parseInt(this.courseStep) + 1;
-
-      // Simple step courses
-      if(this.c.content.steps[this.courseStep - 1].type == 1) {
-        $location.path('/course/' + courseId + '/step/' + nextStepPage);
-        return;
-      }
-
-      // Check if all response are checked
-      if(!this.getNumbersAnswers()) {
-        this.messageError = "Toutes les questions n'ont pas ete remplies";
-        return;
-      };
-
-      // Count score
-      for (var index in this.answers) {
-        if (this.answers.hasOwnProperty(index)) {
-          if( this.c.content.steps[this.courseStep - 1].quizz[index].responses[this.answers[index]].good == true) {
-            r++;
-          }
-        }
-      }   
-
-      return;
-    }
-
-
+    // Verify number of answers
     this.getNumbersAnswers = function() {
       var nb = 0;
       for (var index in this.answers) {
@@ -72,5 +42,52 @@ angular.module('frontMoocSurvivalApp')
       return (nb == this.c.content.steps[this.courseStep - 1].quizz.length) ? true : false;
     }
 
+    // Result quizz
+    this.nextStep = function () {
+      var nextStepPage = parseInt(this.courseStep) + 1;
+
+      // Simple step courses
+      if(this.c.content.steps[this.courseStep - 1].type == 1) {
+        $location.path('/course/' + courseId + '/step/' + nextStepPage);
+        return;
+      }
+
+      // Nb question & score --> dialog
+      $scope.r    = 0;
+      $scope.max  = this.c.content.steps[this.courseStep - 1].quizz.length;
+
+
+      // Check if all response are checked
+      if(!this.getNumbersAnswers()) {
+        this.messageError = "Toutes les questions n'ont pas ete remplies";
+        return;
+      };
+
+      // Count score
+      for (var index in this.answers) {
+        if (this.answers.hasOwnProperty(index)) {
+          if(this.c.content.steps[this.courseStep - 1].quizz[index].responses[this.answers[index]].good == true) {
+            $scope.r ++;
+          }
+        }
+      }   
+
+      // open dialog result
+      ngDialog.open({
+        template: 'views/includes/score-result-modal.html',
+        scope: $scope
+      });
+    }
+
+
+    // Dialog content
+    $scope.getScore = function (score, max) {
+      return (100 * (score/max));
+    }
+
+    $scope.quitCourse = function () {
+      ngDialog.closeAll();
+      $location.path('#');
+    }
   }
 );

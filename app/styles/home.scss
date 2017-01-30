@@ -1,0 +1,141 @@
+#home{
+	.home-background{
+		height: 400px;
+		line-height: 400px;
+		background-image: url('../images/forest3.jpg');
+		background-size: cover;
+		background-position: center center;
+		text-align: center;
+		background-repeat: no-repeat;
+		
+		div{
+			line-height: 1;
+			vertical-align: middle;
+			display: inline-block;
+
+			h1{
+				margin: 0;
+				display: inline-block;
+				text-transform: uppercase;
+				color: #fff;
+				text-align: center;
+				font-size: 100px;
+			}
+
+			span{
+				text-transform: uppercase;
+				color: #fff;
+				text-align: center;
+				display: inline-block;
+				width: 100%;
+				font-size: 34px;
+			}
+		}
+	}
+
+	.home-block-1{
+		padding: 50px 0px;
+
+		h2{
+			margin-top: 0px;
+			text-transform: uppercase;
+			color: $blue-dark;
+			margin-bottom: 20px;
+		}
+
+		.logo-homepage{
+			display: inline-block;
+			width: 200px;
+			height: 200px;
+			background-image: url('../images/jungle-man.jpg');
+			background-size: cover;
+			background-position: center center;
+			border: 5px solid #fff;
+			-webkit-border-radius: 50%;
+					border-radius: 50%;
+		}	
+	}
+
+	.home-block-2{
+		padding: 30px 0px;
+		background-color: #fff;
+
+		h2{
+			text-transform: uppercase;
+			color: $blue-dark;
+			margin-bottom: 20px;
+		}
+
+		p{
+			margin-bottom: 20px;
+		}
+	}
+
+	.home-block-3{
+		padding: 30px 0px;
+
+		h2{
+			text-transform: uppercase;
+			color: $blue-dark;
+			margin-bottom: 20px;
+		}
+
+		p{
+			margin-bottom: 20px;
+		}
+	}
+
+	.home-block-4{
+		padding: 30px 0px;
+		background-color: $blue-dark;
+		color: #fff;
+
+		h2{
+			text-transform: uppercase;
+			margin-bottom: 0px;
+		}
+
+		p{
+			margin-bottom: 20px;
+		}
+
+		img{
+			height: 40px;
+			display: inline-block;
+		}
+
+		h3{
+			text-transform: uppercase;
+			font-weight: lighter;
+			font-size: 18px;
+		}
+	}
+
+	.home-block-5{
+		padding: 70px 0px 90px;
+		background-image: url('../images/conseils-survie.jpg');
+		background-size: cover;
+		background-position: center center;
+		color: #fff;
+
+		h2{
+			text-transform: uppercase;
+			margin-bottom: 0px;
+		}
+
+		p{
+			margin-bottom: 20px;
+		}
+
+		input{
+			background-color: $blue-dark;
+			border: none;
+			display: inline-block;
+			padding: 8px 30px;
+		}
+
+		input[type="email"] {
+			width: 300px;
+		}
+	}
+}
