@@ -1,43 +1,85 @@
-<div class="container">
-    <h1>Mon Profil</h1><br>
-  <div class="col-md-6">
-      <img class="profile-photo" ng-src="{{profile.userProfile.photo}}" alt="">
-  </div>
-  <div class="col-md-6">
-    <h1>{{profile.userProfile.username}}</h1>
-    <h2>{{profile.userProfile.role}}</h2>
-    <p>Date de naissance: {{profile.userProfile.birthday}}</p>
-    <p>Email : {{profile.userProfile.email}}</p>
-    <p>Nombre de cours :{{profile.nbCourse}}</p>
-  </div>
-  <!-- Badges -->
-  <div class="row">
-    <div class="col-md-12 trait"></div>
-    <h1>Mes badges</h1><br>
-    <div ng-repeat="badge in profile.userProfile.badges" class="badges">
-      <div class="col-md-4">
-        <img class="circleBadge center-block" ng-src="./images/{{badge.name}}.jpg" alt=""><br>
-        <p class="text-center">{{badge.name}}</p>
+<div id="profile-page">
+  
+  <div class="header-profile">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <div class="logo-homepage"></div>
+        </div>
+        <div class="col-md-8">
+          <h1>{{profile.userProfile.username}}</h1>
+          <span class="label-role">{{profile.userProfile.role}}</span>
+          <span class="nb-course-created">Nombre de cours : {{profile.nbCourse}}</span>
+          <a href="#/createcourse/1"><i class="fa fa-plus" aria-hidden="true"></i> Créer un cours</a>
+          <a href=""><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon profil</a>
+        </div>
       </div>
     </div>
   </div>
+  
+  <div class="badge-profile">
+    <div class="container">
+      <!-- Badges -->
+      <h2>Mes badges</h2>
+      <div class="badges">
+        <div class="row">
+          <div class="col-md-3 text-center" ng-repeat="badge in profile.userProfile.badges">
+            <img class="circle-badge" ng-src="./images/{{badge.name}}.jpg" alt="">
+            <span>{{badge.name}}</span>
+          </div>
+        </div>
+      </div>
 
-  <!-- Cours -->
-  <div ng-if="profile.userProfile.role == 'instructor'" class="row">
-    <div class="col-md-12 trait"></div>
-    <h1>Mes Cours</h1><br>
-    <div ng-repeat="course in profile.userProfile.courses" class="badges">
-      <div class="row">
-        <div class="text-center picto col-md-1">
-          <i class="fa fa-book" aria-hidden="true"></i>
-        </div>
-        <div class="courseTitle col-md-offset-1 col-md-7">
-          <p class="text-center">{{course.title}}</p>
-        </div>
-        <a class="text-center btn btn-light courseAccess col-md-offset-1 col-md-2" href="#/course/{{course.id}}">Accès au cours</a>
-      </div><br>
     </div>
   </div>
 
-  <a href="#/createcourse">Créer un cours</a>
+  <div class="container course-profile">
+    <!-- Cours / Editor view -->
+    <div ng-if="profile.userProfile.role == 'instructor'">
+      <h2>Mes Cours</h2>
+      <div ng-repeat="course in profile.userProfile.courses" class="courses">
+
+        <div class="header-course-list">  
+          <h3><i class="fa fa-book" aria-hidden="true"></i> {{course.title}}</h3>
+          <a class="course-acces" href="#/course/{{course.id}}">Accès au cours</a>
+          <a class="course-update" href="#">Modifier cours</a>
+        </div>
+
+        <div class="content-course-list row">
+          <div class="col-md-6 col-sm-6 col-xs-6 text-center">
+            <span>Nombre de participants</span>
+            <span class="number">45</span>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 text-center">
+            <span>Score moyen</span>
+            <span class="number">33 %</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cours / Normal view -->
+    <div ng-if="profile.userProfile.role == 'student'">
+      <h2>Mes Cours</h2>
+      <div ng-repeat="course in profile.userProfile.courses" class="courses">
+
+        <div class="header-course-list">  
+          <h3><i class="fa fa-book" aria-hidden="true"></i> {{course.title}}</h3>
+          <a class="course-acces" href="#/course/{{course.id}}">Accès au cours</a>
+        </div>
+
+        <div class="content-course-list row">
+          <div class="col-md-6 col-sm-6 col-xs-6 text-center">
+            <span>Taux d'avancement</span>
+            <span class="number">45 %</span>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 text-center">
+            <span>Badge</span>
+            <span class="number">.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
