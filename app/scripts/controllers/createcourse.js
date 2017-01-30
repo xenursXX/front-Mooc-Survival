@@ -8,9 +8,8 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CreateCourseCtrl', function ($resource, $routeParams, CoursesService, $location, FileUploader) {
+  .controller('CreateCourseCtrl', function ($resource, $routeParams, CoursesService, $location) {
 
-    this.uploader = new FileUploader();
     this.arrayQuestions = [1,2];
     this.displayQuestion = true;
 
