@@ -1,11 +1,9 @@
 <div class="container">
-  <h1>TOTO créé un cours</h1>
-
-  <h1>Ajout de l'image de couverture</h1><br>
+  <h1 class="text-center">Création du chapitre</h1>
 
     <div class="input-group">
-      <span class="input-group-addon" id="basic-addon3">Titre du chapitre </span>
-      <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+      <span class="input-group-addon" id="basic-addon3">Titre du chapitre n°{{create.numChapter}}</span>
+      <input type="text" class="form-control" ng-model="create.chapterTitle" id="basic-url" aria-describedby="basic-addon3">
     </div><br>
   <textarea id="tinymce" data-ng-model="create.text"></textarea>
   <br/>
@@ -13,6 +11,8 @@
     <div class="text-center">
       <a href="#/createcourse/{{idcourse}}/chapter/{{idchapter}}"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>  Ajout d'un chapitre</a><br>
     </div>
+  </div><br>
+  <div class="text-center">
+    <a href="#/createquizz/{{ idcourse }}" class="btn btn-primary" ng-click="create.getData()">Valider et passer au quizz</a>
   </div>
-  <p ng-bind="create.text"></p>{{create.text}}
-  <a href="#/createquizz/{{ idcourse }}" class="btn btn-primary" ng-click="create.getData()">Valider et passer au quizz</a>
+  <br><br>

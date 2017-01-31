@@ -10,12 +10,20 @@
 angular.module('frontMoocSurvivalApp')
   .controller('CreateChapterCtrl', function ($resource, $routeParams, CoursesService, $location) {
 
+    //GET Course before anything && display chapter+1
+
+
+
     this.arrayQuestions = [1,2];
     this.displayQuestion = true;
-    this.chapters = [1,2];
+
 
     this.addChapters = function(){
-      this.chapters.push(+1);
+      if(tinyMCE.activeEditor.getContent() !== null && tinyMCE.activeEditor.getContent() !== "" && this.chapterTitle !== null){
+        //envoyer les donnée au back && reload state
+        console.log('requete à faire');
+      }
+
     }
     this.addQuestion = function(){
       this.arrayQuestions.push(+1);
@@ -29,12 +37,8 @@ angular.module('frontMoocSurvivalApp')
       height:400
     });
     this.getData = function(){
-      console.log('toto',tinyMCE);
+      console.log('getChapterTitle', this.chapterTitle);
       console.log(tinyMCE.activeEditor.getContent());
-      $resource('http://localhost:5555/courses')
-      .save()
-      .$promise
-      .then()
     }
     var SendDataForm = [];
     this.submited = function(dataForm, index){
