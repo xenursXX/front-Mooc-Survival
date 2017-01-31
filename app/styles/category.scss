@@ -19,7 +19,7 @@
 			background-image: url("../images/mountain2.jpg");
 		}
 
-		&.foret{
+		&.forest{
 			background-image: url("../images/forest2.jpg");
 		}
 
@@ -38,5 +38,9 @@
 
 	.category-content{
 		padding: 20px 0px;
+	}
+
+	.no-results{
+		padding: 50px 0px;
 	}
 }

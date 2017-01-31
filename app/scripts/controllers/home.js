@@ -8,11 +8,15 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('HomeCtrl', function (CategoriesService, CoursesService) {
-
+  .controller('HomeCtrl', function (CategoriesService, CoursesService, Restangular, $scope) {
+    
     // Categories list
     this.categoriesList = CategoriesService.getCategories();
 
     // Courses list
-   	this.coursesList = CoursesService.getCourses();
+   	var _courses = Restangular.all('courses');
+
+    _courses.getList().then(function (data) {
+      $scope.coursesList =  data.plain();
+    });
   });

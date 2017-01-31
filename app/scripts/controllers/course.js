@@ -8,14 +8,61 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CourseCtrl', function ($resource, $routeParams, CoursesService, $location, ngDialog, $scope) {
+  .controller('CourseCtrl', function ($resource, $routeParams, CoursesService, $location, ngDialog, $scope, Restangular) {
 
     var courseId    = $routeParams.id;
     this.courseStep  = $routeParams.step;
+    $scope.summary = [];
 
-    CoursesService.getCourseId($routeParams.id).then(function(data){
-        $scope.c = data;
+    var _courses = Restangular.all('courses');
+    _courses.get(courseId).then(function (data) {
+      $scope.c = data.plain();
+
+      // get numbers of steps
+      $scope.nbStep = $scope.c.chapters.length + $scope.c.quizzes.length;
+
+      // Check bad request url
+      if($routeParams.step > $scope.nbStep) {
+        $location.path('#');
+        return;
+      }
+
+      // Get summary for timeline and list chapters
+      getSummary($scope.c);
+
+      if(!$routeParams.step) {
+        return;
+      }
+
+      // Change content for questions and classic course
+      transformContent($scope.c);
     });
+
+    var getSummary = function (content) {
+      for (var i=0; i < content.chapters.length; i++) {
+        $scope.summary.push(content.chapters[i]);
+      }
+
+      for (var i=0; i < content.quizzes.length; i++) {
+        $scope.summary.push(content.quizzes[i]);
+      }
+    }
+
+    var transformContent = function(content) {
+      for (var i=0; i < content.chapters.length; i++) {
+        if(content.chapters[i].number == $routeParams.step) {
+          $scope.typeStep = 1;
+          $scope.c = content.chapters[i];
+        }
+      }
+
+      for (var i=0; i < content.quizzes.length; i++) {
+        if(content.quizzes[i].number == $routeParams.step) {
+          $scope.typeStep = 2;
+          $scope.c = content.quizzes[i];
+        }
+      }
+    }
 
 
     // Commentary
@@ -32,16 +79,20 @@ angular.module('frontMoocSurvivalApp')
       this.form = {};
     };
 
+
+
+    // QUIIZZ
+    $scope.userAnswers = {};
     
     // Verify number of answers
     this.getNumbersAnswers = function() {
       var nb = 0;
-      for (var index in this.answers) {
-        if (this.answers.hasOwnProperty(index)) {
+      for (var index in $scope.userAnswers) {
+        if ($scope.userAnswers.hasOwnProperty(index)) {
           nb++;
         }
       } 
-      return (nb == this.c.content.steps[this.courseStep - 1].quizz.length) ? true : false;
+      return (nb == $scope.max) ? true : false;
     }
 
     // Result quizz
@@ -49,14 +100,14 @@ angular.module('frontMoocSurvivalApp')
       var nextStepPage = parseInt(this.courseStep) + 1;
 
       // Simple step courses
-      if(this.c.content.steps[this.courseStep - 1].type == 1) {
+      if($scope.typeStep == 1) {
         $location.path('/course/' + courseId + '/step/' + nextStepPage);
         return;
       }
 
       // Nb question & score --> dialog
       $scope.r    = 0;
-      $scope.max  = this.c.content.steps[this.courseStep - 1].quizz.length;
+      $scope.max  = $scope.c.questions.length;
 
 
       // Check if all response are checked
@@ -66,9 +117,9 @@ angular.module('frontMoocSurvivalApp')
       };
 
       // Count score
-      for (var index in this.answers) {
-        if (this.answers.hasOwnProperty(index)) {
-          if(this.c.content.steps[this.courseStep - 1].quizz[index].responses[this.answers[index]].good == true) {
+      for (var index in $scope.userAnswers) {
+        if ($scope.userAnswers.hasOwnProperty(index)) {
+          if($scope.userAnswers[index] == $scope.c.questions[index - 1].good_answer - 1) {
             $scope.r ++;
           }
         }
