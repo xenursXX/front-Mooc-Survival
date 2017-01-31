@@ -21,6 +21,12 @@ angular.module('frontMoocSurvivalApp')
       // get numbers of steps
       $scope.nbStep = $scope.c.chapters.length + $scope.c.quizzes.length;
 
+      // Check bad request url
+      if($routeParams.step > $scope.nbStep) {
+        $location.path('#');
+        return;
+      }
+
       // Get summary for timeline and list chapters
       getSummary($scope.c);
 
