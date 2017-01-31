@@ -9,7 +9,7 @@
  */
 
 angular.module("frontMoocSurvivalApp")
-  .factory("CoursesService", function () {
+  .factory("CoursesService", function (Restangular) {
 
       /******* @TODO : CRUD Course ******/
 
@@ -347,7 +347,11 @@ angular.module("frontMoocSurvivalApp")
       ];
 
       this.getCourses = function () {
-        return courses;
+        var _courses = Restangular.all('courses');
+
+        _courses.getList().then(function (data) {
+          return data.plain();
+        });
       }
 
       this.getCoursesCategory = function (cat_id) {
