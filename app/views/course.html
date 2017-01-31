@@ -25,47 +25,53 @@
         <p>{{ c.content }}</p>
         <h2>Chapitres</h2>
         <ul class="chapter-list">
-          <li ng-repeat="chapter in course.c.content.steps">
-            <span class="label-chapter" ng-if="chapter.type == 1">Cours</span>
-            <span class="label-chapter" ng-if="chapter.type == 2">Quizz</span>
+          <li ng-repeat="chapter in summary">
+            <span class="label-chapter" ng-if="chapter.content">Cours</span>
+            <span class="label-chapter" ng-if="chapter.questions">Quizz</span>
             {{ chapter.title }}
           </li>
         </ul>
       </div>
       <div class="col-md-12 text-center" ng-show="!course.courseStep">
-        <a href="#/course/{{ course.c.id }}/step/1" class="question-button">Let's go !</a>
+        <a href="#/course/{{ c.id }}/step/1" class="question-button">Let's go !</a>
       </div>
+
+
+
 
       <!-- Step course -->
       <div class="col-md-12" ng-show="course.courseStep">
         
         <!-- Timeline -->
         <div class="timeline-bar">
-          <div class="bar-timeline-background" style="width : calc(100% - (100%/{{ course.c.content.steps.length }}) )">
-              <div style="width: calc( ({{ course.courseStep - 1}} / {{ course.c.content.steps.length - 1}}) *  100%)"></div>
+          <div class="bar-timeline-background" style="width : calc(100% - (100%/{{ nbStep }}) )">
+              <div style="width: calc( ({{ course.courseStep - 1}} / {{ nbStep - 1}}) *  100%)"></div>
           </div>
 
-          <div class="column" ng-repeat="timeline in course.c.content.steps">
+          <div class="column" ng-repeat="timeline in summary">
               <div class="timeline-round" ng-class="{'done' : (course.courseStep - 1) > $index , 'active' : (course.courseStep - 1) == $index }"><div></div></div>
               <span>{{ timeline.title }}</span>
           </div>
         </div>
 
-        <h2>{{ course.c.content.steps[course.courseStep - 1].title }}</h2>
+        <h2>{{ c.title }}</h2>
         
+
         <!-- Basic content -->
-        <div ng-if="course.c.content.steps[course.courseStep - 1].type == 1">
-          <p>{{ course.c.content.steps[course.courseStep - 1].content }}</p>
+        <div ng-if="typeStep == 1">
+          <p>{{ c.content }}</p>
         </div>
 
+
+
         <!-- Quizz content -->
-        <div ng-if="course.c.content.steps[course.courseStep - 1].type == 2">
-          <div class="question-block" ng-repeat="quizz in course.c.content.steps[course.courseStep - 1].quizz">
+        <div ng-if="typeStep == 2">
+          <div class="question-block" ng-repeat="quizz in c.questions">
             <p class="question">{{ $index + 1 }}. {{ quizz.question }}</p>
             
-            <div class="checkbox" ng-repeat="response in quizz.responses">
+            <div class="checkbox" ng-repeat="answer in quizz.answers">
               <label>
-                <input type="radio" ng-model="course.answers[quizz.id]" ng-value="$index"> {{ response.content }} 
+                <input type="radio" ng-model="userAnswers[quizz.id]" ng-value="$index"> {{ answer.answer }} 
               </label>
             </div>
           </div>
