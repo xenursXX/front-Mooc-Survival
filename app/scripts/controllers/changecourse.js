@@ -12,5 +12,7 @@ angular.module('frontMoocSurvivalApp')
     //GET de tous les chapitres d'un cours
     this.userProfile = UserService.userStatic[0];
     this.nbCourse = this.userProfile.courses.length;
-
+    this.deleteChapter=function(idchapitre){
+      // REquete pour delete un chapitre
+    }
   });

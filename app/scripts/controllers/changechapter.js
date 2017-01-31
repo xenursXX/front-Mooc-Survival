@@ -20,6 +20,8 @@ angular.module('frontMoocSurvivalApp')
     this.UpdateData = function(){
       console.log('contenu du text editor',tinyMCE.activeEditor.getContent());
       console.log('Titre du chapitre', this.chapterTitle);
-      //Envoie des datas en Put au back
+      //Envoie des datas en Put au back et on renvoie vers la page du cours du question ( #/course/{{idducours}})
     }
+
+
   });

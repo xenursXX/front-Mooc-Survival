@@ -6,7 +6,7 @@
     <div class="col-md-1 background-chapter text-center">
       <h4><i class="fa fa-book" aria-hidden="true"></i></h4>
     </div>
-    <div class="col-md-5 background-chapter text-center">
+    <div class="col-md-5 background-chapter">
       <h4>{{course.title}}</h4>
     </div>
     <div class="col-md-2 background-chapter text-center">
@@ -17,13 +17,32 @@
     </div>
     <div class="col-md-2 background-chapter text-center">
       <h4>
-        <a href="#/createchapter/{{idcourse}}/chapter/{{idchapter}}"><i class="fa fa-plus" aria-hidden="true"></i></a>
         <!-- <a href="#/changecours/:idcourse/chapter/:idchapter"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
-        <i ng-click="deleteCourse(course.id)" class="fa fa-minus" aria-hidden="true"></i>
+        <a ng-click="deleteCourse(course.id)"><i  class="fa fa-minus" aria-hidden="true"></i></a>
       </h4>
 
     </div>
-    <br><br>
+    <!-- AJouter un ng repeat des chapitre par cours -->
+    <div class="row">
+      <div class="col-md-offset-1 col-md-1 background-chapter-item">
+        <h4 class="text-center"><i class="fa fa-file-text" aria-hidden="true"></i></h4>
+      </div>
+      <div class="col-md-6 background-chapter-item"><h4>Titre du Cours</h4></div>
+      <div class="col-md-1 background-chapter-item">
+        <h4 class="text-center">
+          <!-- Delete chapter -->
+          <a ng-click="deleteChapter(change.idchapter)"><i  class="fa fa-minus" aria-hidden="true"></i></a>
+          <!-- Update chapter -->
+          <a href="#/changecours/:idcourse/chapter/:idchapter"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+        </h4>
+      </div>
+    </div><br>
+    <!-- Add Chapter -->
+    <div class="row">
+      <div class="col-md-offset-5">
+        <a href="#/createchapter/{{idcourse}}/chapter/{{idchapter}}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter un chapitre</a>
+      </div>
+    </div> <br>
   </div><br><br>
   <div class="text-center">
     <a class="btn btn-primary" ng-click="change.createcourse()">Créer un cours <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
