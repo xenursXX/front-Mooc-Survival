@@ -14,7 +14,6 @@ angular.module('frontMoocSurvivalApp')
     var _courses = Restangular.all('courses');
     _courses.getList().then(function (data) {
       $scope.coursesList2 = test(data.plain());
-      console.log($scope.coursesList2);
     });
 
 

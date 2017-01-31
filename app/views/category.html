@@ -11,7 +11,7 @@
     <h2>Liste des stages</h2>
 
     <div class="row">
-      <div class="col-md-4" ng-repeat="course in coursesList | filter : category.search">
+      <div class="col-md-4" ng-repeat="course in coursesList | filter : category.search as resultCourseInCategory">
         <a class="course-box" href="#/course/{{course.id}}">
           <span class="label-category">#{{course.category.name}}</span>
           <div class="footer-course">
@@ -29,6 +29,9 @@
             </span>
           </div>
         </a>
+      </div>
+      <div class="col-md-12 text-center no-results" ng-if="!resultCourseInCategory.length">
+        Mince ! <br>Pour le moment il n'y a pas de cours pour cette catégorie
       </div>
     </div>
   </div>
