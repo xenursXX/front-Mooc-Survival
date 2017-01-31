@@ -8,10 +8,21 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CategoryCtrl', function ($routeParams, CategoriesService, CoursesService) {
+  .controller('CategoryCtrl', function ($routeParams, CategoriesService, CoursesService, Restangular, $scope) {
+
+  	// Filter search
+    this.search = {};
+    this.search.category = {};
+    this.search.category.id = $routeParams.id;
 
     // Courses list
-    this.coursesList = CoursesService.getCoursesCategory($routeParams.id);
+    //this.coursesList = CoursesService.getCoursesCategory($routeParams.id);
+    var _courses = Restangular.all('courses');
+
+    _courses.getList().then(function (data) {
+      $scope.coursesList = data.plain();
+      console.log($scope.coursesList);
+    });
 
     // Category View
     this.categoryPageName = CategoriesService.getCategoryName($routeParams.id);

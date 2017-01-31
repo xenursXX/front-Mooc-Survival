@@ -8,12 +8,20 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CourseCtrl', function ($resource, $routeParams, CoursesService, $location, ngDialog, $scope) {
+  .controller('CourseCtrl', function ($resource, $routeParams, CoursesService, $location, ngDialog, $scope, Restangular) {
 
     var courseId    = $routeParams.id;
     this.courseStep  = $routeParams.step;
 
     this.c = CoursesService.getCourse(courseId);
+
+
+    var _courses = Restangular.all('courses');
+
+    _courses.get(courseId).then(function (data) {
+      console.log(data.plain());
+    });
+
 
 
     // Commentary

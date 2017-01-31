@@ -19,10 +19,12 @@ angular
     'angularMoment',
     'ui.bootstrap',
     'ngDialog',
-    'angularFileUpload'
-
+    'angularFileUpload',
+    'restangular'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, RestangularProvider) {
+    RestangularProvider.setBaseUrl('http://localhost:5555/v1/');
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
