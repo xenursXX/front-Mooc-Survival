@@ -1,5 +1,5 @@
 <div id="profile-page">
-  
+
   <div class="header-profile">
     <div class="container">
       <div class="row">
@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="badge-profile">
     <div class="container">
       <!-- Badges -->
@@ -39,7 +39,7 @@
       <h2>Mes Cours</h2>
       <div ng-repeat="course in profile.userProfile.courses" class="courses">
 
-        <div class="header-course-list">  
+        <div class="header-course-list">
           <h3><i class="fa fa-book" aria-hidden="true"></i> {{course.title}}</h3>
           <a class="course-acces" href="#/course/{{course.id}}">Accès au cours</a>
           <a class="course-update" href="#">Modifier cours</a>
@@ -63,7 +63,7 @@
       <h2>Mes Cours</h2>
       <div ng-repeat="course in profile.userProfile.courses" class="courses">
 
-        <div class="header-course-list">  
+        <div class="header-course-list">
           <h3><i class="fa fa-book" aria-hidden="true"></i> {{course.title}}</h3>
           <a class="course-acces" href="#/course/{{course.id}}">Accès au cours</a>
         </div>
@@ -82,4 +82,7 @@
       </div>
     </div>
   </div>
+
+  <a class="btn btn-primary" href="#/createcourse">Créer un cours</a>
+
 </div>

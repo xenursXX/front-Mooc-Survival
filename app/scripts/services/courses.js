@@ -9,7 +9,7 @@
  */
 
 angular.module("frontMoocSurvivalApp")
-  .factory("CoursesService", function () {
+  .factory("CoursesService", function ($q, $http) {
 
       /******* @TODO : CRUD Course ******/
 
@@ -346,8 +346,34 @@ angular.module("frontMoocSurvivalApp")
         }
       ];
 
+      this.getCourseId = function (id) {
+        var deferred = $q.defer();
+
+        $http({
+          method: 'GET',
+          url: 'http://localhost:5555/v1/courses/' + id,
+        }).then(function successCallback(response) {
+          deferred.resolve(response.data);
+        }, function errorCallback(response) {
+          deferred.reject('error');
+        });
+
+        return deferred.promise;
+      }
+
       this.getCourses = function () {
-        return courses;
+        var deferred = $q.defer();
+
+        $http({
+          method: 'GET',
+          url: 'http://localhost:5555/v1/courses',
+        }).then(function successCallback(response) {
+          deferred.resolve(response.data);
+        }, function errorCallback(response) {
+          deferred.reject('error');
+        });
+
+        return deferred.promise;
       }
 
       this.getCoursesCategory = function (cat_id) {

@@ -69,6 +69,16 @@ angular
         controller: 'CreateCourseCtrl',
         controllerAs: 'create'
       })
+      .when('/createchapter/:idcourse/chapter/:idchapter', {
+        templateUrl: 'views/createchapter.html',
+        controller: 'CreateChapterCtrl',
+        controllerAs: 'create'
+      })
+      .when('/createquizz/:idcourse', {
+        templateUrl: 'views/createquizz.html',
+        controller: 'CreateQuizzCtrl',
+        controllerAs: 'create'
+      })
       .otherwise({
         redirectTo: '/'
       });

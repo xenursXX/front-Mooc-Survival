@@ -13,7 +13,9 @@ angular.module('frontMoocSurvivalApp')
     var courseId    = $routeParams.id;
     this.courseStep  = $routeParams.step;
 
-    this.c = CoursesService.getCourse(courseId);
+    CoursesService.getCourseId($routeParams.id).then(function(data){
+        $scope.c = data;
+    });
 
 
     // Commentary
