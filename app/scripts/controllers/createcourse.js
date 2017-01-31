@@ -9,33 +9,10 @@
  */
 angular.module('frontMoocSurvivalApp')
   .controller('CreateCourseCtrl', function ($resource, $routeParams, CoursesService, $location) {
+    this.createchapter = function(){
+      //get l'id du cours then send to next state
+      $location.path('/createchapter/' + courseId + '/chapter/' + 1);
 
-    this.arrayQuestions = [1,2];
-    this.displayQuestion = true;
-    this.chapters = [1,2];
-
-    this.addChapters = function(){
-      this.chapters.push(+1);
-    }
-    this.addQuestion = function(){
-      this.arrayQuestions.push(+1);
-      if(this.arrayQuestions.length > 19){
-        this.displayQuestion = false;
-      }
-    }
-    tinymce.init({
-      selector: 'textarea',  // change this value according to your HTML
-      plugins: ["image link save emoticons code colorpicker fullscreen media"],
-      height:400
-    });
-    this.getData = function(){
-      console.log('toto',tinyMCE);
-      console.log(tinyMCE.activeEditor.getContent());
-    }
-    var SendDataForm = [];
-    this.submited = function(dataForm, index){
-      SendDataForm.push(dataForm);
-      console.log('SendDataForm',dataForm);
     }
   }
 );

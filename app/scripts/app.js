@@ -64,9 +64,14 @@ angular
         controller: 'CategoryCtrl',
         controllerAs: 'category'
       })
-      .when('/createcourse/:idcourse/chapter/:idchapter', {
+      .when('/createcourse', {
         templateUrl: 'views/createcourse.html',
         controller: 'CreateCourseCtrl',
+        controllerAs: 'create'
+      })
+      .when('/createchapter/:idcourse/chapter/:idchapter', {
+        templateUrl: 'views/createchapter.html',
+        controller: 'CreateChapterCtrl',
         controllerAs: 'create'
       })
       .when('/createquizz/:idcourse', {
