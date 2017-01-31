@@ -8,30 +8,30 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CreateCourseCtrl', function ($resource, $routeParams, CoursesService, $location) {
+  .controller('CreateCourseCtrl', function ($resource, $routeParams, CoursesService, $location, CategoriesService) {
 
-    this.arrayQuestions = [1,2];
-    this.displayQuestion = true;
+  this.displayMessage = false;
+  this.DisplayCategoryName = "montagne";
+  var CourseID = 1;
+  this.categoriesList = CategoriesService.getCategories();
+  this.SetCategory = function(categoryId, categoryName){
+    this.DisplayCategoryName = categoryName;
+    CourseID = categoryId;
+  }
 
-    this.addQuestion = function(){
-      this.arrayQuestions.push(+1);
-      if(this.arrayQuestions.length > 19){
-        this.displayQuestion = false;
+    this.createchapter = function(){
+
+      if(this.titleCourse == "" ||  this.titleCourse == null){
+      this.displayMessage = true;
+      }else{
+        this.displayMessage = false;
+        console.log('CourseID', CourseID);
+        console.log('titleCourse', this.titleCourse);
+        //get l'id du cours then send to next state
+        $location.path('/createchapter/' + courseId + '/chapter/' + 1);
       }
-    }
-    tinymce.init({
-      selector: 'textarea',  // change this value according to your HTML
-      plugins: ["image link save emoticons code colorpicker fullscreen media"],
-      height:400
-    });
-    this.getData = function(){
-      console.log('toto',tinyMCE);
-      console.log(tinyMCE.activeEditor.getContent());
-    }
-    var SendDataForm = [];
-    this.submited = function(dataForm, index){
-      SendDataForm.push(dataForm);
-      console.log('SendDataForm',dataForm);
+
+
     }
   }
 );

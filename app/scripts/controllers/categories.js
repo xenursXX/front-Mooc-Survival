@@ -12,5 +12,6 @@ angular.module('frontMoocSurvivalApp')
 
   	// Categories list
     this.categoriesList = CategoriesService.getCategories();
+
   }
 );

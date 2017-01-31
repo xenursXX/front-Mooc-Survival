@@ -1,67 +1,23 @@
 <div class="container">
-  <h1>TOTO créé un cours</h1>
-
-  <h1>Ajout de l'image de couverture</h1>
-  <div class="title">
-    <label class="">Chapitre 1 :</label><input class="form-control" type="text">
-  </div>
-      <textarea id="tinymce1" data-ng-model="create.text"></textarea>
-<br/>
-
-  <p ng-bind="create.text"></p>{{create.text}}
-  <a class="btn btn-primary" ng-click="create.getData()">Valider mon cours</a>
-
-  <h1>Creation du Quizz</h1>
-
-  <form ng-repeat="item in create.arrayQuestions track by $index" class="monForm">
-    <div class="col-md-12 question">
-      <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
-        <input placeholder="Question" class="form-control" ng-model="create.myform[$index].q1" type="text">
-      </div>
-    </div>
-    <div class="reponse col-md-3">
-      <div class="input-group">
-        <span class="input-group-addon">
-           <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r1" class="" type="radio">
-        </span>
-        <input class="form-control" placeholder="Réponse n°1" ng-model="create.myform[$index].r1" type="text">
-      </div>
-    </div>
-    <div class="reponse col-md-3">
-      <div class="input-group">
-        <span class="input-group-addon">
-          <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r2" class="" type="radio">
-        </span>
-      <input class="form-control" placeholder="Réponse n°2" ng-model="create.myform[$index].r2" type="text">
-    </div>
-  </div>
-  <div class="reponse col-md-3">
-    <div class="input-group">
-      <span class="input-group-addon">
-        <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r3" class="" type="radio">
-      </span>
-    <input class="form-control" placeholder="Réponse n°3" ng-model="create.myform[$index].r3" type="text">
-  </div>
-</div>
-<div class="reponse col-md-3">
+  <h1>Création de cours</h1>
   <div class="input-group">
-    <span class="input-group-addon">
-      <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r4" class="" type="radio">
-    </span>
-    <input class="form-control" placeholder="Réponse n°4" ng-model="create.form[$index].r4" type="text">
-  </div>
-</div>
+    <span class="input-group-addon" id="basic-addon3">Titre du cours </span>
+    <input type="text" ng-model="create.titleCourse" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  </div><br>
 
-<div class="ligne col-md-offset-3 col-md-6"></div><br>
+<label for="">Ajouter une catégorie :
+  <div class="btn-group" uib-dropdown is-open="status.isopen">
+    <button id="single-button"  type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+      {{create.DisplayCategoryName}} <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu"  uib-dropdown-menu role="menu" aria-labelledby="single-button">
+      <li ng-repeat="categorie in create.categoriesList" value="1" role="menuitem"><a ng-click="create.SetCategory(categorie.id,categorie.category_name)">{{categorie.category_name}}</a></li>
+    </ul>
+  </div>
+</label><br><br><br>
 
-  </form>
-  <div class="col-md-12">
-    <div class="text-center">
-      <a href="" ng-if="create.displayQuestion" ng-click="create.addQuestion()"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>  Ajout d'une question</a><br>
-    </div>
-  </div>
-  <div class="col-md-12">
-    <a class="btn btn-primary" ng-click="create.submited(create.myform, $index)">Valider mon Quizz</a> <br><br>
-  </div>
+
+  <a class="btn btn-primary pull-right" ng-click="create.createchapter()">Créer un chapitre <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+<br><br>
+  <div ng-show="create.displayMessage" class="alert alert-danger" role="alert">Veuillez remplir le champs "Titre du cours"</div>
 </div>

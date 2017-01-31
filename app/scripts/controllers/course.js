@@ -65,7 +65,6 @@ angular.module('frontMoocSurvivalApp')
     }
 
 
-
     // Commentary
     this.update = function(commentForm){
       console.log('comment', commentForm);
