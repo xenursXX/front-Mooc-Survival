@@ -8,10 +8,30 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('HeaderCtrl', function ($routeParams, CategoriesService, CoursesService, UserService, ngDialog) {
+  .controller('HeaderCtrl', function ($routeParams, CategoriesService, CoursesService, UserService, ngDialog, Restangular, $scope) {
 
   	// Fake list
-    this.coursesList = CoursesService.getCourses();
+    var _courses = Restangular.all('courses');
+    _courses.getList().then(function (data) {
+      $scope.coursesList2 = test(data.plain());
+      console.log($scope.coursesList2);
+    });
+
+
+    // TODO :Find another solution more clean for waste time
+    var test = function (tmp) {
+        for (var i = 0; i < tmp.length; i++) {
+            delete tmp[i].quizzes;
+            delete tmp[i].comments;
+            delete tmp[i].content;
+            delete tmp[i].chapters;
+            delete tmp[i].students;
+            delete tmp[i].author;
+            delete tmp[i].category;
+        }
+
+        return tmp;
+    }
 
     // Categories list
     this.categoriesList = CategoriesService.getCategories();

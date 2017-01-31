@@ -21,7 +21,6 @@ angular.module('frontMoocSurvivalApp')
 
     _courses.getList().then(function (data) {
       $scope.coursesList = data.plain();
-      console.log($scope.coursesList);
     });
 
     // Category View
