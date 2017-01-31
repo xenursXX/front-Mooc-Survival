@@ -13,13 +13,11 @@ angular.module('frontMoocSurvivalApp')
     var courseId    = $routeParams.id;
     this.courseStep  = $routeParams.step;
 
-    this.c = CoursesService.getCourse(courseId);
-
-
     var _courses = Restangular.all('courses');
 
     _courses.get(courseId).then(function (data) {
       console.log(data.plain());
+      $scope.c = data.plain();
     });
 
 

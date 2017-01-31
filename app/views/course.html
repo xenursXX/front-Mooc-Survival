@@ -7,10 +7,10 @@
           <div class="img-course"></div>
         </div>
         <div class="col-md-8">
-          <h1>{{ course.c.title }}</h1>
-          <span class="label-category">#{{ course.c.category.name }}</span>
-          <span class="author">Created by {{ course.c.author.username }}</span>
-          <span class="created-at">Le {{ course.c.created_at }}</span>
+          <h1>{{ c.title }}</h1>
+          <span class="label-category">#{{ c.category.name }}</span>
+          <span class="author">Created by {{ c.author.username }}</span>
+          <span class="created-at">Le {{ c.created_at }}</span>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
       <!-- Begin course -->
       <div class="col-md-12" ng-show="!course.courseStep">
         <h2>Résumé</h2>
-        <p>{{ course.c.content.summary }}</p>
+        <p>{{ c.content }}</p>
         <h2>Chapitres</h2>
         <ul class="chapter-list">
           <li ng-repeat="chapter in course.c.content.steps">
