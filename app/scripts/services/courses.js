@@ -16,11 +16,11 @@ angular.module("frontMoocSurvivalApp")
       var courses = [
         {
           "author": {
-            "id": 1, 
+            "id": 1,
             "username": "Benjamin"
-          }, 
+          },
           "category": {
-            "id": 1, 
+            "id": 1,
             "name": "montagne"
           }, 
           "comments": [
@@ -48,7 +48,7 @@ angular.module("frontMoocSurvivalApp")
               "stars" : "4",
               "content" : "Je suis le dieux maya un peu trop stylé"
             }
-          ], 
+          ],
           "content": {
             "summary" : " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, tempora dolore officiis quo sed rem cumque sapiente, doloribus modi, dolor aut nihil fugit corrupti porro! Nulla iure corporis explicabo ipsam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ducimus quas tempore, officiis aut voluptatum, accusamus possimus pariatur labore at laudantium odio blanditiis nam, facilis iure tenetur ex ullam minus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, aspernatur numquam. Ullam asperiores eos magni id repellendus quidem et ducimus totam. Nam harum unde excepturi doloremque minima adipisci, ducimus quam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia veniam suscipit voluptatibus magnam eum sit quasi laborum aliquid incidunt accusantium, rem delectus vel modi ut, inventore deserunt. Recusandae, illum laudantium.",
             "image_url" : "url de l'image",
@@ -109,21 +109,21 @@ angular.module("frontMoocSurvivalApp")
                 ],
               }
             ],
-          }, 
-          "created_at": "25/01/17 - 08:59:53", 
-          "id": 1, 
+          },
+          "created_at": "25/01/17 - 08:59:53",
+          "id": 1,
           "title": "Survivre lors d'une avalanche"
         },
         {
           "author": {
-            "id": 2, 
+            "id": 2,
             "username": "Guillaume"
-          }, 
+          },
           "category": {
-            "id": 2, 
+            "id": 2,
             "name": "apocalypse"
-          }, 
-          "comments": [], 
+          },
+          "comments": [],
           "content": {
             "summary" : " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, tempora dolore officiis quo sed rem cumque sapiente, doloribus modi, dolor aut nihil fugit corrupti porro! Nulla iure corporis explicabo ipsam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ducimus quas tempore, officiis aut voluptatum, accusamus possimus pariatur labore at laudantium odio blanditiis nam, facilis iure tenetur ex ullam minus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, aspernatur numquam. Ullam asperiores eos magni id repellendus quidem et ducimus totam. Nam harum unde excepturi doloremque minima adipisci, ducimus quam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia veniam suscipit voluptatibus magnam eum sit quasi laborum aliquid incidunt accusantium, rem delectus vel modi ut, inventore deserunt. Recusandae, illum laudantium.",
             "image_url" : "url de l'image",
@@ -184,21 +184,21 @@ angular.module("frontMoocSurvivalApp")
                 ],
               }
             ],
-          }, 
-          "created_at": "25/01/17 - 08:59:53", 
-          "id": 2, 
+          },
+          "created_at": "25/01/17 - 08:59:53",
+          "id": 2,
           "title": "Préparer ses armes"
         },
         {
           "author": {
-            "id": 3, 
+            "id": 3,
             "username": "Elodie"
-          }, 
+          },
           "category": {
-            "id": 3, 
+            "id": 3,
             "name": "desert"
-          }, 
-          "comments": [], 
+          },
+          "comments": [],
           "content": {
             "summary" : " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, tempora dolore officiis quo sed rem cumque sapiente, doloribus modi, dolor aut nihil fugit corrupti porro! Nulla iure corporis explicabo ipsam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ducimus quas tempore, officiis aut voluptatum, accusamus possimus pariatur labore at laudantium odio blanditiis nam, facilis iure tenetur ex ullam minus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, aspernatur numquam. Ullam asperiores eos magni id repellendus quidem et ducimus totam. Nam harum unde excepturi doloremque minima adipisci, ducimus quam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia veniam suscipit voluptatibus magnam eum sit quasi laborum aliquid incidunt accusantium, rem delectus vel modi ut, inventore deserunt. Recusandae, illum laudantium.",
             "image_url" : "url de l'image",
@@ -259,21 +259,21 @@ angular.module("frontMoocSurvivalApp")
                 ],
               }
             ],
-          }, 
-          "created_at": "25/01/17 - 08:59:53", 
-          "id": 3, 
+          },
+          "created_at": "25/01/17 - 08:59:53",
+          "id": 3,
           "title": "Avoir de l'eau"
         },
         {
           "author": {
-            "id": 4, 
+            "id": 4,
             "username": "Fab"
-          }, 
+          },
           "category": {
-            "id": 4, 
+            "id": 4,
             "name": "forest"
-          }, 
-          "comments": [], 
+          },
+          "comments": [],
           "content": {
             "summary" : " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, tempora dolore officiis quo sed rem cumque sapiente, doloribus modi, dolor aut nihil fugit corrupti porro! Nulla iure corporis explicabo ipsam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ducimus quas tempore, officiis aut voluptatum, accusamus possimus pariatur labore at laudantium odio blanditiis nam, facilis iure tenetur ex ullam minus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, aspernatur numquam. Ullam asperiores eos magni id repellendus quidem et ducimus totam. Nam harum unde excepturi doloremque minima adipisci, ducimus quam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia veniam suscipit voluptatibus magnam eum sit quasi laborum aliquid incidunt accusantium, rem delectus vel modi ut, inventore deserunt. Recusandae, illum laudantium.",
             "image_url" : "url de l'image",
@@ -339,9 +339,9 @@ angular.module("frontMoocSurvivalApp")
                 ],
               }
             ],
-          }, 
-          "created_at": "25/01/17 - 08:59:53", 
-          "id": 4, 
+          },
+          "created_at": "25/01/17 - 08:59:53",
+          "id": 4,
           "title": "Grimper aux arbres"
         }
       ];
@@ -384,7 +384,7 @@ angular.module("frontMoocSurvivalApp")
                     m.push(courses[index]);
                 }
             }
-        }   
+        }
         return m;
       }
 
@@ -396,7 +396,7 @@ angular.module("frontMoocSurvivalApp")
                     break;
                 }
             }
-        }   
+        }
       }
 
       return this;

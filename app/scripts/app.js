@@ -34,7 +34,7 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/profile', {
+      .when('/profile/:idprofile', {
         templateUrl: 'views/profile.html',
         controller: 'ProfileCtrl',
         controllerAs: 'profile'
@@ -78,6 +78,16 @@ angular
         templateUrl: 'views/createquizz.html',
         controller: 'CreateQuizzCtrl',
         controllerAs: 'create'
+      })
+      .when('/changecours/:idcourse', {
+        templateUrl: 'views/changecourse.html',
+        controller: 'ChangeCourseCtrl',
+        controllerAs: 'change'
+      })
+      .when('/changecours/:idcourse/chapter/:idchapter', {
+        templateUrl: 'views/changechapter.html',
+        controller: 'ChangeChapterCtrl',
+        controllerAs: 'change'
       })
       .otherwise({
         redirectTo: '/'

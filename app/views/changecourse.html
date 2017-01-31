@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Je change mon cours</h1>
+  <!-- Cours / Normal view -->
+  <h2>Mes Cours</h2>
+  <div ng-repeat="course in change.userProfile.courses" class="row">
+    <div class="col-md-1 background-chapter text-center">
+      <h4><i class="fa fa-book" aria-hidden="true"></i></h4>
+    </div>
+    <div class="col-md-5 background-chapter text-center">
+      <h4>{{course.title}}</h4>
+    </div>
+    <div class="col-md-2 background-chapter text-center">
+      <h4>Nb chapitres :</h4>
+    </div>
+    <div class="col-md-1 background-chapter text-center">
+      <h4>{{course.category.name}}</h4>
+    </div>
+    <div class="col-md-2 background-chapter text-center">
+      <h4>
+        <a href="#/createchapter/{{idcourse}}/chapter/{{idchapter}}"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        <!-- <a href="#/changecours/:idcourse/chapter/:idchapter"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
+        <i ng-click="deleteCourse(course.id)" class="fa fa-minus" aria-hidden="true"></i>
+      </h4>
+
+    </div>
+    <br><br>
+  </div><br><br>
+  <div class="text-center">
+    <a class="btn btn-primary" ng-click="change.createcourse()">Créer un cours <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+  </div>
+</div>
