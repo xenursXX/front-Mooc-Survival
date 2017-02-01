@@ -8,18 +8,23 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CreateChapterCtrl', function ($resource, $routeParams, CoursesService, $location) {
+  .controller('CreateChapterCtrl', function ($scope, $resource, $routeParams, CoursesService, $location, Restangular) {
 
     //GET Course before anything && display chapter+1
-
-
-
+    var idCourse = $routeParams.idcourse;
+    this.courseId = $routeParams.idcourse;
+    var chapter = Restangular.one('courses',$routeParams.idcourse).get();
+    chapter.then(function(data){
+      console.log('datass', data.plain().chapters.length+1);
+      $scope.chapterNumber = data.plain().chapters.length+1;
+      $scope.NextchapterNumber = data.plain().chapters.length+2;
+    })
     this.arrayQuestions = [1,2];
     this.displayQuestion = true;
 
 
     this.addChapters = function(){
-      if(tinyMCE.activeEditor.getContent() !== null && tinyMCE.activeEditor.getContent() !== "" && this.chapterTitle !== null){
+      if(tinyMCE.activeEditor.getContent() !== null || tinyMCE.activeEditor.getContent() !== "" || this.chapterTitle !== null){
         //envoyer les donnée au back && reload state
         console.log('requete à faire');
       }

@@ -19,16 +19,18 @@ angular.module('frontMoocSurvivalApp')
   this.SetCategory = function(categoryId, categoryName){
     this.DisplayCategoryName = categoryName;
     CategoryID = categoryId;
-  } 
+  }
 
     this.createchapter = function(){
 
       if(this.titleCourse == "" ||  this.titleCourse == null){
       this.displayMessage = true;
       }else{
-          courses.customPOST({title: this.titleCourse, author_id:idUser, content:"a", category_id:CategoryID, token:myToken})
+          courses.customPOST({title: this.titleCourse, author_id:idUser, content:"a", category_id:3, token:myToken})
           .then(function(data){
-            console.log("data",data);
+            console.log("data",data.plain().id);
+            //get l'id du cours then send to next state
+             $location.path('/createchapter/' + data.plain().id + '/chapter/' + 1);
           },
         function(data){
           console.log("error");
@@ -36,8 +38,7 @@ angular.module('frontMoocSurvivalApp')
         this.displayMessage = false;
         console.log('CourseID', CategoryID);
         console.log('titleCourse', this.titleCourse);
-        //get l'id du cours then send to next state
-        // $location.path('/createchapter/' + CategoryID + '/chapter/' + 1);
+
       }
 
 

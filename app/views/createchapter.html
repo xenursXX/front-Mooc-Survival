@@ -1,15 +1,15 @@
-<div class="container">
+<div class="container" data-no-turbolink="true">
   <h1 class="text-center">Création du chapitre</h1>
 
     <div class="input-group">
-      <span class="input-group-addon" id="basic-addon3">Titre du chapitre n°{{create.numChapter}}</span>
+      <span class="input-group-addon" id="basic-addon3">Titre du chapitre n°{{chapterNumber}}</span>
       <input type="text" class="form-control" ng-model="create.chapterTitle" id="basic-url" aria-describedby="basic-addon3">
     </div><br>
   <textarea id="tinymce" data-ng-model="create.text"></textarea>
   <br/>
   <div class="col-md-12">
     <div class="text-center">
-      <a href="#/createcourse/{{idcourse}}/chapter/{{idchapter}}"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>  Ajout d'un chapitre</a><br>
+      <a href="#/createchapter/{{create.courseId}}/chapter/{{NextchapterNumber}}"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>  Ajout d'un chapitre</a><br>
     </div>
   </div><br>
   <div class="text-center">
