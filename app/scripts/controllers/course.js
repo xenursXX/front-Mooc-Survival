@@ -8,7 +8,7 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CourseCtrl', function ($resource, $routeParams, CoursesService, $location, ngDialog, $scope, Restangular) {
+  .controller('CourseCtrl', function ($resource, $routeParams, CoursesService, $location, ngDialog, $scope, Restangular, UserService) {
 
     var courseId    = $routeParams.id;
     this.courseStep  = $routeParams.step;
@@ -33,6 +33,9 @@ angular.module('frontMoocSurvivalApp')
       if(!$routeParams.step) {
         return;
       }
+
+      // Put to back the step of User
+      Restangular.one('users', UserService.getUserData().id).one('courses', $routeParams.id).one('steps', $routeParams.step).customPUT({'current_step': $routeParams.step});
 
       // Change content for questions and classic course
       transformContent($scope.c);
