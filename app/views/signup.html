@@ -2,10 +2,16 @@
 	<div class="container text-center" style="line-height: 100vh">
 		<div class="signup-block">
 			<h1>Let's go !</h1>
-			<input type="text" placeholder="Email">
-			<input type="text" placeholder="Pseudo">
-			<input type="password" placeholder="Mot de passe">
-			<button>TADAM !</button>
+			<input type="text" ng-model="myBuilding.email" placeholder="Email">
+			<input type="text" ng-model="myBuilding.username" placeholder="Pseudo">
+			<input type="password" ng-model="myBuilding.password" placeholder="Mot de passe">
+			<label>
+               <input type="radio" ng-model="myBuilding.role" ng-value="'student'"> Student
+            </label>
+            <label>
+               <input type="radio" ng-model="myBuilding.role" ng-value="'instructor'"> Instructor
+            </label>
+			<button ng-click="register()" ng-disabled="!myBuilding.email || !myBuilding.username || !myBuilding.password">TADAM !</button>
 		</div>
 	</div>
 </div>

@@ -7,11 +7,11 @@
           <div class="logo-homepage"></div>
         </div>
         <div class="col-md-8">
-          <h1>{{profile.userProfile.username}}</h1>
-          <span class="label-role">{{profile.userProfile.role}}</span>
-          <span class="nb-course-created">Nombre de cours : {{profile.nbCourse}}</span>
-          <a href="#/createcourse"><i class="fa fa-plus" aria-hidden="true"></i> Créer un cours</a>
-          <a href=""><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon profil</a>
+          <h1>{{userProfile.username}}</h1>
+          <span class="label-role">{{userProfile.roles[0].name}}</span>
+          <span class="nb-course-created">Nombre de cours : </span>
+          <a href="#/createcourse" ng-if="isMe"><i class="fa fa-plus" aria-hidden="true"></i> Créer un cours</a>
+          <a href="" ng-if="isMe"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon profil</a>
         </div>
       </div>
     </div>
@@ -20,12 +20,16 @@
   <div class="badge-profile">
     <div class="container">
       <!-- Badges -->
-      <h2>Mes badges</h2>
+      <h2 ng-if="isMe">Mes badges</h2>
+      <h2 ng-if="!isMe">Ses badges</h2>
       <div class="badges">
         <div class="row">
-          <div class="col-md-3 text-center" ng-repeat="badge in profile.userProfile.badges">
+          <div class="col-md-3 text-center" ng-repeat="badge in userProfile.badges as nbBadge">
             <img class="circle-badge" ng-src="./images/{{badge.name}}.jpg" alt="">
             <span>{{badge.name}}</span>
+          </div>
+          <div class="text-center" ng-if="!nbBadge.length">
+            Aucun badge pour le moment
           </div>
         </div>
       </div>
@@ -35,9 +39,10 @@
 
   <div class="container course-profile">
     <!-- Cours / Editor view -->
-    <div ng-if="profile.userProfile.role == 'instructor'">
-      <h2>Mes Cours</h2>
-      <div ng-repeat="course in profile.userProfile.courses" class="courses">
+    <div ng-if="userProfile.roles[0].name == 'instructor'">
+      <h2 ng-if="isMe">Mes Cours</h2>
+      <h2 ng-if="!isMe">Ses Cours</h2>
+      <div ng-repeat="course in userProfile.courses as nbCourses" class="courses">
 
         <div class="header-course-list">
           <h3><i class="fa fa-book" aria-hidden="true"></i> {{course.title}}</h3>
@@ -56,12 +61,16 @@
           </div>
         </div>
       </div>
+      <div class="text-center" ng-if="!nbCourses.length">
+        Aucun cours pour le moment
+      </div>
     </div>
 
     <!-- Cours / Normal view -->
-    <div ng-if="profile.userProfile.role == 'student'">
-      <h2>Mes Cours</h2>
-      <div ng-repeat="course in profile.userProfile.courses" class="courses">
+    <div ng-if="userProfile.roles[0].name == 'student'">
+      <h2 ng-if="isMe">Mes Cours</h2>
+      <h2 ng-if="!isMe">Ses Cours</h2>
+      <div ng-repeat="course in userProfile.courses as NbCourses2" class="courses">
 
         <div class="header-course-list">
           <h3><i class="fa fa-book" aria-hidden="true"></i> {{course.title}}</h3>
@@ -79,6 +88,10 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="text-center" ng-if="!nbCourses2.length">
+        Aucun cours pour le moment
       </div>
     </div>
   </div>
