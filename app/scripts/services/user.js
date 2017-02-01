@@ -9,7 +9,7 @@
  */
 
 angular.module("frontMoocSurvivalApp")
-  .factory("UserService", function () {
+  .factory("UserService", function (Restangular) {
 
     this.userStatic = [
       {
@@ -85,6 +85,8 @@ angular.module("frontMoocSurvivalApp")
     this.loggedIn =  function (data, token) {
       localStorage.setItem('SurvivalUser', JSON.stringify(data));
       localStorage.setItem('SurvivalToken', token);
+
+      Restangular.setDefaultHeaders({Authorization: 'JWT ' + token});
     }
 
     this.isConnected = function () {

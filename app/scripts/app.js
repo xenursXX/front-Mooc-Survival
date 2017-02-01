@@ -25,6 +25,9 @@ angular
   .config(function ($routeProvider, RestangularProvider) {
     RestangularProvider.setBaseUrl('http://localhost:5555/v1/');
 
+    // var token = localStorage.getItem('SurvivalToken');
+    // RestangularProvider.setDefaultHeaders({Authorization: 'JWT ' + token});
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
@@ -91,7 +94,10 @@ angular
         controller: 'ChangeChapterCtrl',
         controllerAs: 'change'
       })
+      .when('/404', {
+        templateUrl: 'views/404.html'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/404'
       });
   });
