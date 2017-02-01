@@ -11,7 +11,10 @@ angular.module('frontMoocSurvivalApp')
   .controller('CreateChapterCtrl', function ($scope, $resource, $routeParams, CoursesService, $location, Restangular) {
 
     //GET Course before anything && display chapter+1
+
     var idCourse = $routeParams.idcourse;
+    var addchapter = Restangular.one('courses',$routeParams.idcourse).all('chapters');
+    this.error = false;
     this.courseId = $routeParams.idcourse;
     var chapter = Restangular.one('courses',$routeParams.idcourse).get();
     chapter.then(function(data){
@@ -42,8 +45,19 @@ angular.module('frontMoocSurvivalApp')
       height:400
     });
     this.getData = function(){
-      console.log('getChapterTitle', this.chapterTitle);
-      console.log(tinyMCE.activeEditor.getContent());
+      if(tinyMCE.activeEditor.getContent() == null || tinyMCE.activeEditor.getContent() == "" || this.chapterTitle == null){
+        this.error = true;
+
+      }else{
+        this.error = false;
+        console.log('getChapterTitle', this.chapterTitle);
+        console.log(tinyMCE.activeEditor.getContent());
+        $location.path('/createquizz/' + idCourse);
+        addchapter.customPOST({title: this.chapterTitle, number:1, content:tinyMCE.activeEditor.getContent(),token:"myToken"})
+
+      }
+
+
     }
     var SendDataForm = [];
     this.submited = function(dataForm, index){

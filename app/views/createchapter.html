@@ -7,12 +7,12 @@
     </div><br>
   <textarea id="tinymce" data-ng-model="create.text"></textarea>
   <br/>
-  <div class="col-md-12">
-    <div class="text-center">
-      <a href="#/createchapter/{{create.courseId}}/chapter/{{NextchapterNumber}}"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>  Ajout d'un chapitre</a><br>
-    </div>
-  </div><br>
+
   <div class="text-center">
-    <a href="#/createquizz/{{ idcourse }}" class="btn btn-primary" ng-click="create.getData()">Valider et passer au quizz</a>
+    <a class="btn btn-primary" ng-click="create.getData()">Valider et passer au quizz</a>
   </div>
+<div ng-show="create.error" class="alert alert-danger" role="alert">Veuillez Renseigner un Titre et un contenu pour ce cours</div>
+<div>
+
+</div>
   <br><br>
