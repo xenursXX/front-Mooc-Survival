@@ -29,6 +29,7 @@
             <span class="label-chapter" ng-if="chapter.content">Cours</span>
             <span class="label-chapter" ng-if="chapter.questions">Quizz</span>
             {{ chapter.title }}
+            <a href="#/course/{{c.id}}/step/{{chapter.number}}" ng-if="stepDone(chapter.number)" style="float: right">GO !</a>
           </li>
         </ul>
       </div>
