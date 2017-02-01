@@ -8,9 +8,9 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('ProfileCtrl', function (UserService) {
-    this.userProfile = UserService.userStatic[0];
-    this.nbCourse = this.userProfile.courses.length;
+  .controller('ProfileCtrl', function (UserService, $routeParams, Restangular) {
+    this.userProfile = UserService.getUserData();
+    //this.nbCourse = this.userProfile.courses.length;
     console.log(this.userProfile);
 
   }

@@ -81,28 +81,30 @@ angular.module("frontMoocSurvivalApp")
         ]
       }
     ];
-    var connected = false;
-    var token     = null;
 
-    this.loggedIn =  function (token) {
-      connected = true;
-      token     = token;
+    this.loggedIn =  function (data, token) {
+      localStorage.setItem('SurvivalUser', JSON.stringify(data));
+      localStorage.setItem('SurvivalToken', token);
     }
 
     this.isConnected = function () {
-      return connected;
+      if(localStorage.getItem('SurvivalToken')) {
+        return true;
+      }
+      return false;
     }
 
-    this.getToken = function () {
-      return token;
+    this.getUserData = function () {
+      return JSON.parse(localStorage.getItem('SurvivalUser'));
     }
 
-    this.logIn = function () {
-      connected = true;
-    }
+    // this.logIn = function () {
+    //   connected = true;
+    // }
 
-    this.logOut = function () {
-      connected = false;
+    this.logout = function () {
+      localStorage.removeItem('SurvivalUser');
+      localStorage.removeItem('SurvivalToken');
     }
 
 	  return this;

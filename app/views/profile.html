@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-8">
           <h1>{{profile.userProfile.username}}</h1>
-          <span class="label-role">{{profile.userProfile.role}}</span>
+          <span class="label-role">{{profile.userProfile.roles[0].name}}</span>
           <span class="nb-course-created">Nombre de cours : {{profile.nbCourse}}</span>
           <a href="#/createcourse"><i class="fa fa-plus" aria-hidden="true"></i> Créer un cours</a>
           <a href=""><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon profil</a>
@@ -23,9 +23,12 @@
       <h2>Mes badges</h2>
       <div class="badges">
         <div class="row">
-          <div class="col-md-3 text-center" ng-repeat="badge in profile.userProfile.badges">
+          <div class="col-md-3 text-center" ng-repeat="badge in profile.userProfile.badges as nbBadge">
             <img class="circle-badge" ng-src="./images/{{badge.name}}.jpg" alt="">
             <span>{{badge.name}}</span>
+          </div>
+          <div class="text-center" ng-if="!nbBadge.length">
+            Vous n'avez actuellement aucun badges
           </div>
         </div>
       </div>

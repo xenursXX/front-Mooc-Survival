@@ -20,13 +20,10 @@ angular.module('frontMoocSurvivalApp')
 
 	this.submitLogin = function () {
 		baseAuth.post($scope.myBuilding).then(function (data) {
-			console.log(data.plain());
+	     	var tmp = data.plain().access_token;
 
-	    	UserService.loggedIn(data.plain());
-	    	var tmp = data.plain().access_token;
-
-	    	baseUser.one($scope.myBuilding.username ).get({}, { access_token: tmp }).then (function (data) {
-	    		console.log(data.plain())
+	    	baseUser.one($scope.myBuilding.username ).get({}, { Authorization: 'JWT ' + tmp }).then (function (data) {
+	    		UserService.loggedIn(data.plain(), tmp);
 	    	})
 
     		ngDialog.closeAll();

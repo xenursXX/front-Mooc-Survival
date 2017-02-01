@@ -8,7 +8,7 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('HeaderCtrl', function ($routeParams, CategoriesService, CoursesService, UserService, ngDialog, Restangular, $scope) {
+  .controller('HeaderCtrl', function ($routeParams, CategoriesService, CoursesService, UserService, ngDialog, Restangular, $scope, $location) {
 
   	// Fake list
     var _courses = Restangular.all('courses');
@@ -54,4 +54,19 @@ angular.module('frontMoocSurvivalApp')
             controller: 'LoginCtrl as login'
         });
     }
+
+    this.logout = function () {
+        UserService.logout();
+        $location.path('/');
+    }
+
+    this.seeProfile = function () {
+        $location.path('/profile/' + UserService.getUserData().id);
+    }
+
+    $scope.toggleDropdown = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $scope.status.isopen = !$scope.status.isopen;
+    };
   });
