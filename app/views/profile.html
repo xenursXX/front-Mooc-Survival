@@ -70,17 +70,17 @@
     <div ng-if="userProfile.roles[0].name == 'student'">
       <h2 ng-if="isMe">Mes Cours</h2>
       <h2 ng-if="!isMe">Ses Cours</h2>
-      <div ng-repeat="course in userProfile.courses as NbCourses2" class="courses">
+      <div ng-repeat="course in coursesListStudent as NbCourses2" class="courses">
 
         <div class="header-course-list">
-          <h3><i class="fa fa-book" aria-hidden="true"></i> {{course.title}}</h3>
-          <a class="course-acces" href="#/course/{{course.id}}">Accès au cours</a>
+          <h3><i class="fa fa-book" aria-hidden="true"></i> {{course.course.title}}</h3>
+          <a class="course-acces" href="#/course/{{course.course.id}}">Accès au cours</a>
         </div>
 
         <div class="content-course-list row">
           <div class="col-md-6 col-sm-6 col-xs-6 text-center">
-            <span>Taux d'avancement</span>
-            <span class="number">45 %</span>
+            <span>Etape</span>
+            <span class="number">{{ course.current_step}}</span>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-6 text-center">
             <span>Badge</span>
