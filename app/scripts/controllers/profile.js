@@ -13,16 +13,29 @@ angular.module('frontMoocSurvivalApp')
 
     // console.log(this.userProfile);
 
-    var baseUser 	= Restangular.all('users');
-    var token = localStorage.getItem('token');
-    Restangular.one('users', $routeParams.idprofile).get({}, { Authorization: 'JWT ' + token }).then(function (data) {
-		$scope.userProfile = data.plain();
-    console.log(data.plain());
-	}, function (error) {
-		$location.path('/404');
-	})
+    Restangular.one('users', $routeParams.idprofile).get().then(function (data) {
+  		$scope.userProfile = data.plain();
+  	}, function (error) {
+  		$location.path('/404');
+  	})
 
-    $scope.isMe = ( UserService.getUserData().id == $routeParams.idprofile) ? true : false;
-    console.log('me', $scope.isME);
+    var userId = UserService.getUserData().id
+
+    $scope.isMe = ( userId == $routeParams.idprofile) ? true : false;
+
+
+    Restangular.all('courses').getList().then(function (data) {
+      $scope.coursesListStudent = [];
+      
+      // Sort courses
+      for(var i = 0; i < data.length; i++) {
+        for(var j = 0; j < data[i].steps.length; j++){
+          if(data[i].steps[j].student.id == userId) {
+            $scope.coursesListStudent.push(data[i].steps[j]);
+          }
+        }
+      }
+    });
+
   }
 );
