@@ -15,12 +15,22 @@ angular.module('frontMoocSurvivalApp')
     var token = localStorage.getItem('token');
     var getChapter = Restangular.one('courses',idCourse).one('chapters',idChapter).get({}, { Authorization: 'JWT ' + token });
     var putChapter = Restangular.one('courses',idCourse).one('chapters',idChapter);
+
     getChapter.then(function(data){
       console.log(data.plain());
       $scope.content = data.plain().content;
       $scope.chapterTitle = data.plain().titre;
     })
+console.log('tinymce',tinymce);
     // NE pas oublier de get le numéro du chapitre
+    // $scope.$on('$destroy', function() {
+    //   var tinyInstance = tinymce.get('#tinymce');
+    //
+    //   if (tinyInstance) {
+    //     tinyInstance.remove();
+    //     tinyInstance = null;
+    //   }
+    // });
     tinymce.init({
       selector: 'textarea',  // change this value according to your HTML
       plugins: ["image link save emoticons code colorpicker fullscreen media"],

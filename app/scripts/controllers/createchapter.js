@@ -19,7 +19,6 @@ angular.module('frontMoocSurvivalApp')
     var chapter = Restangular.one('courses',$routeParams.idcourse).get({}, { Authorization: 'JWT ' + token });
     this.error = false;
     this.courseId = $routeParams.idcourse;
-
     chapter.then(function(data){
       console.log('datass', data.plain().chapters.length+1);
       $scope.chapterNumber = data.plain().chapters.length+1;
