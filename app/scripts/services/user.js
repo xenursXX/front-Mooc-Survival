@@ -82,9 +82,19 @@ angular.module("frontMoocSurvivalApp")
       }
     ];
     var connected = false;
+    var token     = null;
+
+    this.loggedIn =  function (token) {
+      connected = true;
+      token     = token;
+    }
 
     this.isConnected = function () {
       return connected;
+    }
+
+    this.getToken = function () {
+      return token;
     }
 
     this.logIn = function () {

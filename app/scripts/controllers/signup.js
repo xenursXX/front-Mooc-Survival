@@ -8,7 +8,33 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('SignupCtrl', function () {
+  .controller('SignupCtrl', function (Restangular, $scope, ngDialog) {
+
+    var baseAccounts = Restangular.all('register');
+
+    $scope.myBuilding = {
+	    username: "",
+	    email: "",
+	    password: "",
+	    role: "student"
+	};
+
+	$scope.register = function () {
+		baseAccounts.post($scope.myBuilding).then(function (data) {
+	    	console.log(data.plain());
+	    	ngDialog.open({
+			    template: '<p class="text-center">Brave Type !</p>',
+			    plain: true
+			});
+	    }, function(error) {
+	    	ngDialog.open({
+			    template: '<p class="text-center">' + error.data.message + '</p>',
+			    plain: true
+			});
+	    })
+	}
+
     
+
   }
 );
