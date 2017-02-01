@@ -2,14 +2,16 @@
   <h1>Je change mon chapitre</h1>
 
       <div class="input-group">
-        <span class="input-group-addon" id="basic-addon3">Titre du chapitre n°{{change.numChapter}}</span>
+        <span class="input-group-addon" id="basic-addon3">Titre du chapitre n°{{chapterTitle}}</span>
         <input type="text" class="form-control" ng-model="change.chapterTitle" id="basic-url" aria-describedby="basic-addon3">
       </div><br>
     <textarea id="tinymce" >
-      <h1>Welcome to the TinyMCE editor demo!</h1>
+
+        {{content}}
+
     </textarea><br><br>
     <div class="text-center">
-      <a class="btn btn-primary" ng-click="UpdateData()">Valider les changement</a>
+      <a class="btn btn-primary" ng-click="change.UpdateData()">Valider les changement</a>
     </div>
     <br/>
 </div>

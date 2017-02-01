@@ -14,14 +14,15 @@ angular.module('frontMoocSurvivalApp')
     // console.log(this.userProfile);
 
     var baseUser 	= Restangular.all('users');
-
-    Restangular.one('users', $routeParams.idprofile).get().then(function (data) {
+    var token = localStorage.getItem('token');
+    Restangular.one('users', $routeParams.idprofile).get({}, { Authorization: 'JWT ' + token }).then(function (data) {
 		$scope.userProfile = data.plain();
+    console.log(data.plain());
 	}, function (error) {
 		$location.path('/404');
 	})
 
     $scope.isMe = ( UserService.getUserData().id == $routeParams.idprofile) ? true : false;
-
+    console.log('me', $scope.isME);
   }
 );

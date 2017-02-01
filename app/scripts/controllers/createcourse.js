@@ -9,24 +9,33 @@
  */
 angular.module('frontMoocSurvivalApp')
   .controller('CreateCourseCtrl', function ($resource, $routeParams, CoursesService, $location, CategoriesService, UserService, Restangular) {
+
   var courses = Restangular.all('courses');
-  var myToken = "toto";
-  var idUser = 1;
-  this.displayMessage = false;
+  var token = localStorage.getItem('token');
+  var idUser = UserService.getUserData().id;
+
+  // De base on set le select avec la catégorie Montagne
+  var CategoryID = 1; //SET un ID pour
   this.DisplayCategoryName = "montagne";
-  var CategoryID = 1;
+
+  //message d'erreur
+  this.displayMessage = false;
+
+  // On Get toutes les catégories
   this.categoriesList = CategoriesService.getCategories();
+
+  // On affiche la catégorie sélectionné
   this.SetCategory = function(categoryId, categoryName){
     this.DisplayCategoryName = categoryName;
     CategoryID = categoryId;
   }
 
+    // Bouton création du cours
     this.createchapter = function(){
-
       if(this.titleCourse == "" ||  this.titleCourse == null){
       this.displayMessage = true;
       }else{
-          courses.customPOST({title: this.titleCourse, author_id:idUser, content:"a", category_id:3, token:myToken})
+          courses.post({title: this.titleCourse, author_id:idUser, content:"a", category_id:3}, { Authorization: 'JWT ' + token })
           .then(function(data){
             console.log("data",data.plain().id);
             //get l'id du cours then send to next state
@@ -36,12 +45,7 @@ angular.module('frontMoocSurvivalApp')
           console.log("error");
         });
         this.displayMessage = false;
-        console.log('CourseID', CategoryID);
-        console.log('titleCourse', this.titleCourse);
-
       }
-
-
     }
   }
 );

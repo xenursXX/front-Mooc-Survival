@@ -8,15 +8,18 @@
  * Controller of the frontMoocSurvivalApp
  */
 angular.module('frontMoocSurvivalApp')
-  .controller('CreateChapterCtrl', function ($scope, $resource, $routeParams, CoursesService, $location, Restangular) {
+  .controller('CreateChapterCtrl', function ($scope, $resource, $routeParams, CoursesService, $location, Restangular, UserService) {
 
     //GET Course before anything && display chapter+1
 
     var idCourse = $routeParams.idcourse;
+    var token = localStorage.getItem('token');
+    var idUser = UserService.getUserData().id;
     var addchapter = Restangular.one('courses',$routeParams.idcourse).all('chapters');
+    var chapter = Restangular.one('courses',$routeParams.idcourse).get({}, { Authorization: 'JWT ' + token });
     this.error = false;
     this.courseId = $routeParams.idcourse;
-    var chapter = Restangular.one('courses',$routeParams.idcourse).get();
+
     chapter.then(function(data){
       console.log('datass', data.plain().chapters.length+1);
       $scope.chapterNumber = data.plain().chapters.length+1;
@@ -25,14 +28,6 @@ angular.module('frontMoocSurvivalApp')
     this.arrayQuestions = [1,2];
     this.displayQuestion = true;
 
-
-    this.addChapters = function(){
-      if(tinyMCE.activeEditor.getContent() !== null || tinyMCE.activeEditor.getContent() !== "" || this.chapterTitle !== null){
-        //envoyer les donnée au back && reload state
-        console.log('requete à faire');
-      }
-
-    }
     this.addQuestion = function(){
       this.arrayQuestions.push(+1);
       if(this.arrayQuestions.length > 19){
@@ -50,14 +45,18 @@ angular.module('frontMoocSurvivalApp')
 
       }else{
         this.error = false;
-        console.log('getChapterTitle', this.chapterTitle);
-        console.log(tinyMCE.activeEditor.getContent());
         $location.path('/createquizz/' + idCourse);
-        addchapter.customPOST({title: this.chapterTitle, number:1, content:tinyMCE.activeEditor.getContent(),token:"myToken"})
-
+        addchapter.post(
+          {
+            title: this.chapterTitle,
+            number:1,
+            content:tinyMCE.activeEditor.getContent()
+          },
+            {
+              Authorization: 'JWT ' + token
+             }
+        )
       }
-
-
     }
     var SendDataForm = [];
     this.submited = function(dataForm, index){

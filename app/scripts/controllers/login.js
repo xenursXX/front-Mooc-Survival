@@ -21,6 +21,7 @@ angular.module('frontMoocSurvivalApp')
 	this.submitLogin = function () {
 		baseAuth.post($scope.myBuilding).then(function (data) {
 	     	var tmp = data.plain().access_token;
+        localStorage.setItem("token",tmp);
 
 	    	baseUser.one($scope.myBuilding.username ).get({}, { Authorization: 'JWT ' + tmp }).then (function (data) {
 	    		UserService.loggedIn(data.plain(), tmp);
