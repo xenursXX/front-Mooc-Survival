@@ -10,7 +10,7 @@
 angular.module('frontMoocSurvivalApp')
   .controller('SignupCtrl', function (Restangular, $scope, ngDialog) {
 
-    var baseAccounts = Restangular.all('register');
+    var baseRegister = Restangular.all('register');
 
     $scope.myBuilding = {
 	    username: "",
@@ -20,7 +20,7 @@ angular.module('frontMoocSurvivalApp')
 	};
 
 	$scope.register = function () {
-		baseAccounts.post($scope.myBuilding).then(function (data) {
+		baseRegister.post($scope.myBuilding).then(function (data) {
 	    	console.log(data.plain());
 	    	ngDialog.open({
 			    template: '<p class="text-center">Brave Type !</p>',
