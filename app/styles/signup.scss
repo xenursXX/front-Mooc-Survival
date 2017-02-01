@@ -19,7 +19,9 @@
 			text-transform: uppercase;
 		}
 
-		input{
+		input[type="text"],
+		input[type="password"],
+		input[type="email"]{
 			width: 300px;
 			margin: 4px auto;
 			display: block;

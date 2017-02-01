@@ -9,7 +9,7 @@
  */
 
 angular.module("frontMoocSurvivalApp")
-  .factory("UserService", function () {
+  .factory("UserService", function (Restangular) {
 
     this.userStatic = [
       {
@@ -81,18 +81,32 @@ angular.module("frontMoocSurvivalApp")
         ]
       }
     ];
-    var connected = false;
+
+    this.loggedIn =  function (data, token) {
+      localStorage.setItem('SurvivalUser', JSON.stringify(data));
+      localStorage.setItem('SurvivalToken', token);
+
+      Restangular.setDefaultHeaders({Authorization: 'JWT ' + token});
+    }
 
     this.isConnected = function () {
-      return connected;
+      if(localStorage.getItem('SurvivalToken')) {
+        return true;
+      }
+      return false;
     }
 
-    this.logIn = function () {
-      connected = true;
+    this.getUserData = function () {
+      return JSON.parse(localStorage.getItem('SurvivalUser'));
     }
 
-    this.logOut = function () {
-      connected = false;
+    // this.logIn = function () {
+    //   connected = true;
+    // }
+
+    this.logout = function () {
+      localStorage.removeItem('SurvivalUser');
+      localStorage.removeItem('SurvivalToken');
     }
 
 	  return this;

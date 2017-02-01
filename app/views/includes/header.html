@@ -15,7 +15,7 @@
             <i class="fa fa-leanpub" aria-hidden="true"></i>
             {{ result.title }}
           </a>
-        </div> -->
+        </div>
 
         <!-- Categories autocomplete -->
         <div ng-repeat="result in header.categoriesList | filter:header.search.category_name as nbResultCategories">
@@ -39,7 +39,17 @@
     </div>
 
     <div class="block-right" ng-if="header.isLogged()">
-      <a href="#/profile" class="avatar-profile"></a>
+      <span uib-dropdown on-toggle="toggled(open)">
+        <a href class="avatar-profile" id="simple-dropdown" uib-dropdown-toggle></a>
+        <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+          <li ng-click="header.seeProfile()">
+            Voir profile
+          </li>
+          <li ng-click="header.logout()">
+            Déconnexion
+          </li>
+        </ul>
+      </span>
     </div>
   </div>
 </div>
