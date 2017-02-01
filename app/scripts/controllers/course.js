@@ -10,9 +10,10 @@
 angular.module('frontMoocSurvivalApp')
   .controller('CourseCtrl', function ($resource, $routeParams, CoursesService, $location, ngDialog, $scope, Restangular, UserService) {
 
-    var courseId    = $routeParams.id;
-    this.courseStep  = $routeParams.step;
-    $scope.summary = [];
+    var courseId      = $routeParams.id;
+    this.courseStep   = $routeParams.step;
+    $scope.summary    = [];
+    var userId        = UserService.getUserData().id;
 
     var _courses = Restangular.all('courses');
     _courses.get(courseId).then(function (data) {
@@ -35,11 +36,25 @@ angular.module('frontMoocSurvivalApp')
       }
 
       // Put to back the step of User
-      Restangular.one('users', UserService.getUserData().id).one('courses', $routeParams.id).one('steps', $routeParams.step).customPUT({'current_step': $routeParams.step});
+      Restangular.one('users', userId).one('courses', $routeParams.id).one('steps', $routeParams.step).customPUT({'current_step': $routeParams.step});
 
       // Change content for questions and classic course
       transformContent($scope.c);
     });
+
+
+    // Check if the step is done
+    $scope.stepDone = function (chapter_number) {
+      for (var i = 0; i < $scope.c.steps.length; i++) {
+        if($scope.c.steps[i].student.id == userId) {
+          if($scope.c.steps[i].current_step >= chapter_number){
+            console.log($scope.c.steps[i].current_step, chapter_number);
+            return true;
+          }
+          break;
+        }
+      }
+    }
 
     var getSummary = function (content) {
       for (var i=0; i < content.chapters.length; i++) {
