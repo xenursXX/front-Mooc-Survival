@@ -11,7 +11,7 @@
     <div class="reponse col-md-3">
       <div class="input-group">
         <span class="input-group-addon">
-           <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r1" class="" type="radio">
+           <input name="onecheck" ng-model="create.myform[$index].checkbox" value="1" class="" type="radio">
         </span>
         <input class="form-control" placeholder="Réponse n°1" ng-model="create.myform[$index].r1" type="text">
       </div>
@@ -19,7 +19,7 @@
     <div class="reponse col-md-3">
       <div class="input-group">
         <span class="input-group-addon">
-          <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r2" class="" type="radio">
+          <input name="onecheck" ng-model="create.myform[$index].checkbox" value="2" class="" type="radio">
         </span>
       <input class="form-control" placeholder="Réponse n°2" ng-model="create.myform[$index].r2" type="text">
     </div>
@@ -27,7 +27,7 @@
   <div class="reponse col-md-3">
     <div class="input-group">
       <span class="input-group-addon">
-        <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r3" class="" type="radio">
+        <input name="onecheck" ng-model="create.myform[$index].checkbox" value="3" class="" type="radio">
       </span>
     <input class="form-control" placeholder="Réponse n°3" ng-model="create.myform[$index].r3" type="text">
   </div>
@@ -35,9 +35,9 @@
   <div class="reponse col-md-3">
   <div class="input-group">
     <span class="input-group-addon">
-      <input name="onecheck" ng-model="create.myform[$index].checkbox" value="r4" class="" type="radio">
+      <input name="onecheck" ng-model="create.myform[$index].checkbox" value="4" class="" type="radio">
     </span>
-    <input class="form-control" placeholder="Réponse n°4" ng-model="create.form[$index].r4" type="text">
+    <input class="form-control" placeholder="Réponse n°4" ng-model="create.myform[$index].r4" type="text">
   </div>
   </div>
 
@@ -51,7 +51,7 @@
   </div>
   <div class="col-md-12 btns">
     <div class="col-md-offset-5 col-md-2">
-      <a class="btn btn-primary" ng-click="create.submited(create.myform, $index)">Valider mon Quizz</a> <br><br>
+      <a class="btn btn-primary" ng-click="create.stepForward(create.myform, $index)">Valider mon Quizz</a> <br><br>
     </div>
     <div class="col-md-offset-3 col-md-2">
       <a class="btn btn-warning" href="#/profile/{{create.userId}}">Passez l'étape</a> <br><br>
