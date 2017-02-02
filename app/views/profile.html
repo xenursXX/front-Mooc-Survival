@@ -9,7 +9,8 @@
         <div class="col-md-8">
           <h1>{{userProfile.username}}</h1>
           <span class="label-role">{{userProfile.roles[0].name}}</span>
-          <span class="nb-course-created">Nombre de cours : </span>
+          <span class="nb-course-created" ng-if="userProfile.roles[0].name == 'student'">Nombre de cours : {{ coursesListStudent.length }}</span>
+          <span class="nb-course-created" ng-if="userProfile.roles[0].name == 'instructor'">Nombre de cours : {{ nbCourses.length }}</span>
           <a href="#/createcourse" ng-if="isMe"><i class="fa fa-plus" aria-hidden="true"></i> Créer un cours</a>
           <a href="" ng-if="isMe"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon profil</a>
         </div>
@@ -20,8 +21,8 @@
   <div class="badge-profile">
     <div class="container">
       <!-- Badges -->
-      <h2 ng-if="isMe">Mes badges</h2>
-      <h2 ng-if="!isMe">Ses badges</h2>
+      <h2 ng-if="isMe">Mes récompences</h2>
+      <h2 ng-if="!isMe">Ses récompences</h2>
       <div class="badges">
         <div class="row">
           <div class="col-md-3 text-center" ng-repeat="badge in userProfile.badges as nbBadge">
@@ -74,15 +75,20 @@
 
         <div class="header-course-list">
           <h3><i class="fa fa-book" aria-hidden="true"></i> {{course.course.title}}</h3>
+          <span am-time-ago="course.result.created_at"></span>
           <a class="course-acces" href="#/course/{{course.course.id}}">Accès au cours</a>
         </div>
 
         <div class="content-course-list row">
-          <div class="col-md-6 col-sm-6 col-xs-6 text-center">
-            <span>Etape</span>
-            <span class="number">{{ course.current_step}}</span>
+          <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+            <span>Avancement</span>
+            <span class="number">{{ (course.current_step / course.final_step) * 100| number :2 }}%</span>
           </div>
-          <div class="col-md-6 col-sm-6 col-xs-6 text-center">
+          <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+            <span>Score Quizz</span>
+            <span class="number" ng-bind-html="course.result.score"></span>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-4 text-center">
             <span>Badge</span>
             <span class="number">.</span>
           </div>
@@ -90,7 +96,7 @@
 
       </div>
 
-      <div class="text-center" ng-if="!nbCourses2.length">
+      <div class="text-center" ng-if="!coursesListStudent.length">
         Aucun cours pour le moment
       </div>
     </div>
