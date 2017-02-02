@@ -14,6 +14,7 @@ angular.module('frontMoocSurvivalApp')
     this.courseStep   = $routeParams.step;
     $scope.summary    = [];
     var userId        = UserService.getUserData().id;
+    var lastScore     = [];
 
     var _courses = Restangular.all('courses');
     _courses.get(courseId).then(function (data) {
@@ -45,6 +46,9 @@ angular.module('frontMoocSurvivalApp')
 
     // Check if the step is done
     $scope.stepDone = function (chapter_number) {
+      if($routeParams.step){
+        return;
+      }
       for (var i = 0; i < $scope.c.steps.length; i++) {
         if($scope.c.steps[i].student.id == userId) {
           if($scope.c.steps[i].current_step >= chapter_number){
@@ -78,6 +82,17 @@ angular.module('frontMoocSurvivalApp')
         if(content.quizzes[i].number == $routeParams.step) {
           $scope.typeStep = 2;
           $scope.c = content.quizzes[i];
+
+          // Get score of quizz
+          Restangular.one('quizzes', $scope.c.id).getList('scores').then(function (data) {
+            // Find my score
+            for (var i = 0; i < data.length; i++) {
+              if(data[i].student.id == userId) {
+                lastScore = data[i];
+                break;
+              }
+            }
+          })
         }
       }
     }
@@ -143,6 +158,15 @@ angular.module('frontMoocSurvivalApp')
         }
       }   
 
+      if(!lastScore.id) {
+        // Post score
+        Restangular.one('quizzes', $scope.c.id).one('scores').customPOST({'score': $scope.r, 'max_score' : $scope.max, 'student_id' : userId});
+      }else{
+        // Put score
+        Restangular.one('quizzes', $scope.c.id).one('scores', lastScore.id).customPUT({'score': $scope.r, 'max_score': $scope.max, 'student_id' : userId});
+      }
+      
+      
       // open dialog result
       ngDialog.open({
         template: 'views/includes/score-result-modal.html',
@@ -158,7 +182,7 @@ angular.module('frontMoocSurvivalApp')
 
     $scope.quitCourse = function () {
       ngDialog.closeAll();
-      $location.path('#');
+      $location.path('/profile/' + userId);
     }
   }
 );
