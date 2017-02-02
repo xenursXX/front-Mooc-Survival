@@ -158,8 +158,6 @@ angular.module('frontMoocSurvivalApp')
         }
       }   
 
-      console.log(lastScore.id);
-
       if(!lastScore.id) {
         // Post score
         Restangular.one('quizzes', $scope.c.id).one('scores').customPOST({'score': $scope.r, 'max_score' : $scope.max, 'student_id' : userId});
@@ -169,7 +167,6 @@ angular.module('frontMoocSurvivalApp')
       }
       
       
-
       // open dialog result
       ngDialog.open({
         template: 'views/includes/score-result-modal.html',
@@ -185,7 +182,7 @@ angular.module('frontMoocSurvivalApp')
 
     $scope.quitCourse = function () {
       ngDialog.closeAll();
-      $location.path('#');
+      $location.path('/profile/' + userId);
     }
   }
 );

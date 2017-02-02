@@ -21,11 +21,11 @@ angular.module("frontMoocSurvivalApp")
       'id': 2
     },
     {
-      'category_name': 'desert',
+      'category_name': 'forest',
       'id': 3
     },
     {
-      'category_name': 'forest',
+      'category_name': 'desert',
       'id': 4
     },
     {
