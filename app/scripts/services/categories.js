@@ -13,23 +13,23 @@ angular.module("frontMoocSurvivalApp")
 
     var cat = [
     {
-      'category_name': 'montagne',
+      'category_name': 'forest',
       'id': 1
     },
     {
-      'category_name': 'apocalypse',
+      'category_name': 'desert',
       'id': 2
     },
     {
-      'category_name': 'forest',
+      'category_name': 'jungle',
       'id': 3
     },
     {
-      'category_name': 'desert',
+      'category_name': 'mountain',
       'id': 4
     },
     {
-      'category_name': 'jungle',
+      'category_name': 'mars',
       'id': 5
     }
   ];
