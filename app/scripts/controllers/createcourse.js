@@ -35,7 +35,7 @@ angular.module('frontMoocSurvivalApp')
       if(this.titleCourse == "" ||  this.titleCourse == null){
       this.displayMessage = true;
       }else{
-          courses.post({title: this.titleCourse, author_id:idUser, content:"a", category_id:CategoryID}, { Authorization: 'JWT ' + token })
+          courses.post({title: this.titleCourse, author_id:idUser, content:"a", category_id:3}, { Authorization: 'JWT ' + token })
           .then(function(data){
             console.log("data",data.plain().id);
             //get l'id du cours then send to next state

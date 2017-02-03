@@ -13,8 +13,14 @@ angular.module('frontMoocSurvivalApp')
     var courseId      = $routeParams.id;
     this.courseStep   = $routeParams.step;
     $scope.summary    = [];
-    var userId        = UserService.getUserData().id;
+    var userData      = UserService.getUserData();
     var lastScore     = [];
+
+    if(userData){
+      var userId = userData.id;
+    }else{
+      $scope.noLogged = true;
+    }
 
     var _courses = Restangular.all('courses');
     _courses.get(courseId).then(function (data) {

@@ -10,7 +10,7 @@
           <h1>{{ c.title }}</h1>
           <span class="label-category">#{{ c.category.name }}</span>
           <span class="author">Created by {{ c.author.username }}</span>
-          <span class="created-at">Le {{ c.created_at }}</span>
+          <span class="created-at" am-time-ago="c.created_at"></span>
         </div>
       </div>
     </div>
@@ -34,7 +34,8 @@
         </ul>
       </div>
       <div class="col-md-12 text-center" ng-show="!course.courseStep">
-        <a href="#/course/{{ c.id }}/step/1" class="question-button">Let's go !</a>
+        <a href="#/course/{{ c.id }}/step/1" class="question-button" ng-if="!noLogged">Let's go !</a>
+        <p ng-if="noLogged">Il faut être connecté pour voir ce cours</p>
       </div>
 
 
