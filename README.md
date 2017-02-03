@@ -6,7 +6,9 @@ version 0.15.1.
 ## Install
 
 Run `npm install`
+
 Run `bower install`
+
 Install Cors plugin on chrome
 
 ## Build & development
