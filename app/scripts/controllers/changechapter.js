@@ -25,7 +25,7 @@ console.log('tinymce',tinymce);
     // NE pas oublier de get le numéro du chapitre
     // $scope.$on('$destroy', function() {
     //   var tinyInstance = tinymce.get('#tinymce');
-    //
+    // 
     //   if (tinyInstance) {
     //     tinyInstance.remove();
     //     tinyInstance = null;

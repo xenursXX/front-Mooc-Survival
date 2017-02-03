@@ -66,6 +66,8 @@ angular.module('frontMoocSurvivalApp')
                       .all('answers')
                       .post(answer, { Authorization: 'JWT ' + token });
                   })
+                  $location.path('/profile/' + idUser);
+                  
                 })
             })
           // }
