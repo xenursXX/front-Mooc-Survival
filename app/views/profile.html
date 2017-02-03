@@ -68,10 +68,10 @@
     </div>
 
     <!-- Cours / Normal view -->
-    <div ng-if="userProfile.roles[0].name == 'student'">
+    <div>
       <h2 ng-if="isMe">Mes Cours</h2>
       <h2 ng-if="!isMe">Ses Cours</h2>
-      <div ng-repeat="course in coursesListStudent as NbCourses2" class="courses">
+      <div ng-repeat="course in coursesListStudent as NbCourses2" class="courses" ng-if="$last">
 
         <div class="header-course-list">
           <h3><i class="fa fa-book" aria-hidden="true"></i> {{course.course.title}}</h3>
