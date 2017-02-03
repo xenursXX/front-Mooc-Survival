@@ -11,7 +11,7 @@
           <span class="label-role">{{userProfile.roles[0].name}}</span>
           <span class="nb-course-created" ng-if="userProfile.roles[0].name == 'student'">Nombre de cours : {{ coursesListStudent.length }}</span>
           <span class="nb-course-created" ng-if="userProfile.roles[0].name == 'instructor'">Nombre de cours : {{ nbCourses.length }}</span>
-          <a href="#/createcourse" ng-if="isMe"><i class="fa fa-plus" aria-hidden="true"></i> Créer un cours</a>
+          <a href="#/createcourse" ng-if="isMe && userProfile.roles[0].name == 'instructor'"><i class="fa fa-plus" aria-hidden="true"></i> Créer un cours</a>
           <a href="" ng-if="isMe"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon profil</a>
         </div>
       </div>

@@ -83,6 +83,9 @@ angular.module("frontMoocSurvivalApp")
     ];
 
     this.loggedIn =  function (data, token) {
+      localStorage.removeItem('SurvivalUser');
+      localStorage.removeItem('SurvivalToken');
+      
       localStorage.setItem('SurvivalUser', JSON.stringify(data));
       localStorage.setItem('SurvivalToken', token);
 
